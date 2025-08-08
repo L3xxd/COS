@@ -1,33 +1,86 @@
-#paneNavbar{
-    -fx-background-color :  #2D2F33;
+/* 🌒 Navbar */
+#paneNavbar {
+    -fx-background-color: #2D2F33;
 }
 
-.navbarText{
+.navbarText {
     -fx-font-family: "Segoe UI";
-    -fx-font-size: 24px;
-    -fx-text-fill: white;   
+    -fx-font-size: 2em;
+    -fx-text-fill: white;
 }
 
-#paneMain{
+/* 🖤 Fondo principal */
+#paneMain {
     -fx-background-color: #000000;
 }
+
+/* 🧁 Panel flotante */
 #paneFloating {
     -fx-background-color: #ffffff;
     -fx-background-radius: 35;
     -fx-border-radius: 15;
-    -fx-padding: 10;
+    -fx-padding: 2em;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 12, 0.3, 0, 4);
 }
 
-
-#enterButton{
+/* 🚪 Botón de entrada */
+#enterButton {
     -fx-background-color: black;
     -fx-text-fill: white;
-    -fx-font-size: 14pt;
+    -fx-font-size: 1.1em;
     -fx-font-weight: bold;
     -fx-background-radius: 20;
     -fx-border-radius: 20;
-    -fx-padding: 10 20;
+    -fx-padding: 0.8em 2em;
     -fx-alignment: center;
     -fx-text-alignment: center;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 4, 0.5, 0, 2);
+    -fx-cursor: hand;
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+#enterButton:pressed {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-border-color: black;
+    -fx-border-width: 3;
+}
+
+/* 📝 Etiquetas */
+.subtitlesText {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 1.1em;
+    -fx-text-fill: #000000;
+}
+
+/* 🔗 Hipervínculo */
+#linkText {
+    -fx-font-size: 0.9em;
+    -fx-text-fill: #555;
+    -fx-underline: true;
+}
+
+/* 🧾 Campos de texto */
+.dataTextFields {
+    -fx-background-color: #EDEDED;
+    -fx-text-fill: black;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 0.6em 1em;
+    -fx-font-size: 1em;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0.2, 0, 1);
+}
+
+/* 👋 Mensaje de bienvenida */
+
+#welcomeLabel {
+    -fx-font-family: "Segoe UI Bold";
+    -fx-font-size: 51px;
+    -fx-fill: #000;
+}
+
+
+#userLabel, #passwordLabel {
+    -fx-font-size: 18px;
+    -fx-fill: #000;
 }

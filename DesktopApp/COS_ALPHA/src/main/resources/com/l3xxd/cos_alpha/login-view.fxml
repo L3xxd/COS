@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="paneWorkflow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@assets/css/light-mode.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="paneWorkflow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@assets/css/light-mode.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.LoginController">
    <children>
       <AnchorPane id="paneNavbar" fx:id="paneNavbar" layoutX="362.0" layoutY="93.0" prefHeight="60.0" prefWidth="1920.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -20,13 +21,13 @@
                </image>
             </ImageView>
             <Text fx:id="clockText" fill="WHITE" layoutX="1535.0" layoutY="38.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="navbarText" text="00:00" AnchorPane.leftAnchor="1535.0" AnchorPane.rightAnchor="328.046875" />
-            <Text fx:id="dateText" fill="WHITE" layoutX="1691.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="navbarText" text="01/01/2025" AnchorPane.leftAnchor="1690.5" AnchorPane.rightAnchor="106.796875" />
+            <Text fx:id="dateText" fill="WHITE" layoutX="1679.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="navbarText" text="01/01/2025" AnchorPane.leftAnchor="1679.0" AnchorPane.rightAnchor="102.67999267578125" />
             <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="1480.0" layoutY="11.0" AnchorPane.leftAnchor="1480.0" AnchorPane.rightAnchor="402.0">
                <image>
                   <Image url="@assets/img/ui/clock.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="1638.0" layoutY="10.0" AnchorPane.leftAnchor="1638.0" AnchorPane.rightAnchor="244.0">
+            <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="1626.0" layoutY="10.0" AnchorPane.leftAnchor="1626.0" AnchorPane.rightAnchor="256.0">
                <image>
                   <Image url="@assets/img/ui/calendar.png" />
                </image>
@@ -34,16 +35,11 @@
             <Line endX="-100.0" endY="78.72479248046875" layoutX="1941.0" layoutY="-30.0" startX="-100.0" startY="41.529823303222656" stroke="WHITE" strokeWidth="2.0" AnchorPane.leftAnchor="1840.0" AnchorPane.rightAnchor="78.0" />
             <Line endX="-100.0" endY="78.72479248046875" layoutX="1554.0" layoutY="-31.0" startX="-100.0" startY="41.529823303222656" stroke="WHITE" strokeWidth="2.0" />
          </children></AnchorPane>
-      <AnchorPane id=" paneBackground" fx:id="paneBackground" layoutY="60.0" prefHeight="1080.0" prefWidth="1920.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+      <AnchorPane id=" paneBackground" fx:id="paneBackground" layoutY="60.0" prefHeight="1034.0" prefWidth="1920.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
-            <ImageView fitHeight="1020.0" fitWidth="1052.0">
+            <ImageView fitHeight="1080.0" fitWidth="1920.0">
                <image>
-                  <Image url="@assets/img/background/backgroundImge.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="1020.0" fitWidth="970.0" AnchorPane.rightAnchor="0.0">
-               <image>
-                  <Image url="@assets/img/background/backgroundImge.png" />
+                  <Image url="@assets/img/background/Wallpaper.png" />
                </image>
             </ImageView>
          </children>
@@ -56,32 +52,24 @@
                   <Image url="@assets/img/logo/logoImage.png" />
                </image>
             </ImageView>
-            <Text layoutX="188.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¡Bienvenid@ de Nuevo!" AnchorPane.topAnchor="345.0">
+            <Text fx:id="welcomeLabel" layoutX="188.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¡Bienvenid@ de Nuevo!" AnchorPane.topAnchor="345.0">
                <font>
                   <Font name="Segoe UI Bold" size="51.0" />
                </font>
             </Text>
-            <Button id="enterButton" fx:id="enterButton" layoutX="163.0" layoutY="729.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="619.0" text="ENTRAR" />
-            <TextField id="userTextField" fx:id="userTextField" layoutX="290.0" layoutY="490.0" prefHeight="45.0" prefWidth="380.0" AnchorPane.topAnchor="460.0" />
-            <PasswordField id="passwordTextField" fx:id="passwordTextField" layoutX="290.0" layoutY="580.0" prefHeight="45.0" prefWidth="380.0" />
-            <Text layoutX="298.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
-               <font>
-                  <Font name="Segoe UI" size="18.0" />
-               </font>
-            </Text>
-            <Text layoutX="293.0" layoutY="610.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
-               <font>
-                  <Font name="Segoe UI" size="18.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="210.0" layoutY="471.0">
+            <Button id="enterButton" fx:id="enterButton" layoutX="173.0" layoutY="728.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="619.0" text="ENTRAR" />
+            <TextField id="userTextField" fx:id="userTextField" layoutX="277.0" layoutY="489.0" prefHeight="45.0" prefWidth="429.0" styleClass="dataTextFields" />
+            <PasswordField id="passwordTextField" fx:id="passwordTextField" layoutX="277.0" layoutY="581.0" prefHeight="45.0" prefWidth="429.0" styleClass="dataTextFields" />
+            <Hyperlink id="linkText" fx:id="linkText" layoutX="371.0" layoutY="827.0" text="Tengo problemas para iniciar sesión" />
+            <Button fx:id="themeToggleButton" layoutX="813.0" layoutY="62.0" mnemonicParsing="false" text="Button" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="224.0" layoutY="491.0">
                <image>
-                  <Image url="@assets/img/ui/user-login.png" />
+                  <Image url="@assets/img/ui/user.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="209.0" layoutY="578.0">
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="225.0" layoutY="580.0">
                <image>
-                  <Image url="@assets/img/ui/lock-login.png" />
+                  <Image url="@assets/img/ui/password.png" />
                </image>
             </ImageView>
          </children>
