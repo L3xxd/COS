@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.layout.AnchorPane?>
-
-
-<AnchorPane fx:id="paneWorkflow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1024.0" minWidth="1440.0" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" />

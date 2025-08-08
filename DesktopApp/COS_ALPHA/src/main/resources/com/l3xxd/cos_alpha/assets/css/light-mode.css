@@ -1,0 +1,33 @@
+#paneNavbar{
+    -fx-background-color :  #2D2F33;
+}
+
+.navbarText{
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 24px;
+    -fx-text-fill: white;   
+}
+
+#paneMain{
+    -fx-background-color: #000000;
+}
+#paneFloating {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 35;
+    -fx-border-radius: 15;
+    -fx-padding: 10;
+}
+
+
+#enterButton{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-font-size: 14pt;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-padding: 10 20;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 4, 0.5, 0, 2);
+}

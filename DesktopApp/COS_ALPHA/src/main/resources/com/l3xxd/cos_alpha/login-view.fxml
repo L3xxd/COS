@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="paneWorkflow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@assets/css/light-mode.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane id="paneNavbar" fx:id="paneNavbar" layoutX="362.0" layoutY="93.0" prefHeight="60.0" prefWidth="1920.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="1864.0" layoutY="14.0" AnchorPane.rightAnchor="24.0">
+               <image>
+                  <Image url="@assets/img/ui/power-off.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="clockText" fill="WHITE" layoutX="1535.0" layoutY="38.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="navbarText" text="00:00" AnchorPane.leftAnchor="1535.0" AnchorPane.rightAnchor="328.046875" />
+            <Text fx:id="dateText" fill="WHITE" layoutX="1691.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="navbarText" text="01/01/2025" AnchorPane.leftAnchor="1690.5" AnchorPane.rightAnchor="106.796875" />
+            <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="1480.0" layoutY="11.0" AnchorPane.leftAnchor="1480.0" AnchorPane.rightAnchor="402.0">
+               <image>
+                  <Image url="@assets/img/ui/clock.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="1638.0" layoutY="10.0" AnchorPane.leftAnchor="1638.0" AnchorPane.rightAnchor="244.0">
+               <image>
+                  <Image url="@assets/img/ui/calendar.png" />
+               </image>
+            </ImageView>
+            <Line endX="-100.0" endY="78.72479248046875" layoutX="1941.0" layoutY="-30.0" startX="-100.0" startY="41.529823303222656" stroke="WHITE" strokeWidth="2.0" AnchorPane.leftAnchor="1840.0" AnchorPane.rightAnchor="78.0" />
+            <Line endX="-100.0" endY="78.72479248046875" layoutX="1554.0" layoutY="-31.0" startX="-100.0" startY="41.529823303222656" stroke="WHITE" strokeWidth="2.0" />
+         </children></AnchorPane>
+      <AnchorPane id=" paneBackground" fx:id="paneBackground" layoutY="60.0" prefHeight="1080.0" prefWidth="1920.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <ImageView fitHeight="1020.0" fitWidth="1052.0">
+               <image>
+                  <Image url="@assets/img/background/backgroundImge.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="1020.0" fitWidth="970.0" AnchorPane.rightAnchor="0.0">
+               <image>
+                  <Image url="@assets/img/background/backgroundImge.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="paneMain" fx:id="paneMain" opacity="0.3" prefHeight="1020.0" prefWidth="1440.0" stylesheets="@assets/css/light-mode.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0" />
+      <AnchorPane id="paneFloating" fx:id="paneFloating" layoutX="500.0" layoutY="100.0" prefHeight="900.0" prefWidth="950.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <ImageView fitHeight="443.0" fitWidth="561.0" layoutX="203.0" layoutY="-26.0">
+               <image>
+                  <Image url="@assets/img/logo/logoImage.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="188.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¡Bienvenid@ de Nuevo!" AnchorPane.topAnchor="345.0">
+               <font>
+                  <Font name="Segoe UI Bold" size="51.0" />
+               </font>
+            </Text>
+            <Button id="enterButton" fx:id="enterButton" layoutX="163.0" layoutY="729.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="619.0" text="ENTRAR" />
+            <TextField id="userTextField" fx:id="userTextField" layoutX="290.0" layoutY="490.0" prefHeight="45.0" prefWidth="380.0" AnchorPane.topAnchor="460.0" />
+            <PasswordField id="passwordTextField" fx:id="passwordTextField" layoutX="290.0" layoutY="580.0" prefHeight="45.0" prefWidth="380.0" />
+            <Text layoutX="298.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="293.0" layoutY="610.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="210.0" layoutY="471.0">
+               <image>
+                  <Image url="@assets/img/ui/user-login.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="209.0" layoutY="578.0">
+               <image>
+                  <Image url="@assets/img/ui/lock-login.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
