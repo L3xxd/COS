@@ -18,8 +18,6 @@
 /* 🧁 Panel flotante */
 #paneFloating {
     -fx-background-color: #ffffff;
-    -fx-background-radius: 35;
-    -fx-border-radius: 15;
     -fx-padding: 2em;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 12, 0.3, 0, 4);
 }

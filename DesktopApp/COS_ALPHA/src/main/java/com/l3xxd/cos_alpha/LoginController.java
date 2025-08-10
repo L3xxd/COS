@@ -15,6 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
@@ -33,7 +35,8 @@ public class LoginController implements Initializable {
     private AnchorPane paneWorkflow;
 
     @FXML
-    private AnchorPane paneFloating;
+    private Pane paneFloating;
+
 
     @FXML
     private TextField userTextField;
