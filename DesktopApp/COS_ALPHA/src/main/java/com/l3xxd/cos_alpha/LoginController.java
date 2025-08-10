@@ -81,10 +81,10 @@ public class LoginController implements Initializable {
             String cssPath;
             if (isDarkMode) {
                 cssPath = "/com/l3xxd/cos_alpha/assets/css/light-mode.css";
-                themeToggleButton.setText("Oscuro");
+                themeToggleButton.setText("Tema Oscuro");
             } else {
                 cssPath = "/com/l3xxd/cos_alpha/assets/css/dark-mode.css";
-                themeToggleButton.setText("Claro");
+                themeToggleButton.setText("Tema Claro");
             }
 
             URL cssUrl = getClass().getResource(cssPath);
