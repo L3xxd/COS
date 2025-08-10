@@ -23,7 +23,7 @@
 
 
 #enterButton:pressed {
-    -fx-background-color: #006BB5;
+    -fx-background-color: #2D2F33   ;
     -fx-text-fill: #FFFFFF;
     -fx-border-color: #FFFFFF;
     -fx-border-width: 3;
