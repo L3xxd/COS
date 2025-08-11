@@ -8,14 +8,14 @@
 <?import javafx.scene.text.Text?>
 
 
-<HBox fx:id="paneNavbar" alignment="CENTER_LEFT" prefHeight="37.5" spacing="15" style="-fx-padding: 0 30 0 30;" stylesheets="@../assets/css/light-mode.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.navbarController">
+<HBox fx:id="paneNavbar" alignment="CENTER_LEFT" prefHeight="37.5" spacing="15" style="-fx-padding: 0 30 0 30;" stylesheets="@../../assets/css/light-mode.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.Controllers.NavbarController">
 
     <children>
         <!-- Sección izquierda -->
         <HBox alignment="CENTER_LEFT" spacing="8">
             <ImageView>
                 <image>
-                    <Image url="@../assets/img/ui/menu.png" />
+                    <Image url="@../../assets/img/ui/menu.png" />
                 </image>
             </ImageView>
             <Text fx:id="menuText" fill="WHITE" styleClass="navbarText" text="Menu" />
@@ -28,21 +28,21 @@
         <HBox alignment="CENTER_RIGHT" spacing="10">
             <ImageView>
                 <image>
-                    <Image url="@../assets/img/ui/clock.png" />
+                    <Image url="@../../assets/img/ui/clock.png" />
                 </image>
             </ImageView>
             <Text fx:id="clockText" fill="WHITE" styleClass="navbarText" text="00:00" />
 
             <ImageView>
                 <image>
-                    <Image url="@../assets/img/ui/calendar.png" />
+                    <Image url="@../../assets/img/ui/calendar.png" />
                 </image>
             </ImageView>
             <Text fx:id="dateText" fill="WHITE" styleClass="navbarText" text="01/01/2025" />
 
             <ImageView>
                 <image>
-                    <Image url="@../assets/img/ui/user-navbar.png" />
+                    <Image url="@../../assets/img/ui/user-navbar.png" />
                 </image>
             </ImageView>
             <Text fx:id="userprofileText" fill="WHITE" styleClass="navbarText" text="Profile" />

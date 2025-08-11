@@ -1,4 +1,4 @@
-package com.l3xxd.cos_alpha;
+package com.l3xxd.cos_alpha.Controllers;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -8,7 +8,7 @@ import javafx.util.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class navbarController {
+public class NavbarController {
     @FXML
     private Text clockText;
 

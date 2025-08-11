@@ -13,4 +13,6 @@ module com.l3xxd.cos_alpha {
 
     opens com.l3xxd.cos_alpha to javafx.fxml;
     exports com.l3xxd.cos_alpha;
+    exports com.l3xxd.cos_alpha.Controllers;
+    opens com.l3xxd.cos_alpha.Controllers to javafx.fxml;
 }
