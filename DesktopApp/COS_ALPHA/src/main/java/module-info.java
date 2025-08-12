@@ -11,8 +11,18 @@ module com.l3xxd.cos_alpha {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens com.l3xxd.cos_alpha to javafx.fxml;
-    exports com.l3xxd.cos_alpha;
-    exports com.l3xxd.cos_alpha.Controllers;
-    opens com.l3xxd.cos_alpha.Controllers to javafx.fxml;
+    // Exporta Launcher para que JavaFX pueda instanciarlo
+    exports com.l3xxd.cos_alpha to javafx.graphics;
+
+    // Exporta y abre controladores usados en FXML
+    exports com.l3xxd.cos_alpha.controllers.login to javafx.fxml;
+    exports com.l3xxd.cos_alpha.controllers.dashboard to javafx.fxml;
+    exports com.l3xxd.cos_alpha.controllers.layout to javafx.fxml;
+
+    opens com.l3xxd.cos_alpha.controllers.login to javafx.fxml;
+    opens com.l3xxd.cos_alpha.controllers.dashboard to javafx.fxml;
+    opens com.l3xxd.cos_alpha.controllers.layout to javafx.fxml;
+
+    // Abre utilidades si usas reflexión
+    opens com.l3xxd.cos_alpha.core.utils to javafx.fxml;
 }

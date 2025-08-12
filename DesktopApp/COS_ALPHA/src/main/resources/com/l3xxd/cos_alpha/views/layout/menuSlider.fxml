@@ -16,5 +16,5 @@
     </VBox>
 
     <!-- Botón inferior para cambiar tema -->
-    <Button layoutX="10.0" layoutY="325.0" maxWidth="Infinity" text="Cambiar Oscuro" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+    <Button layoutX="10.0" layoutY="324.0" maxWidth="Infinity" text="Cambiar Oscuro" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
 </AnchorPane>
