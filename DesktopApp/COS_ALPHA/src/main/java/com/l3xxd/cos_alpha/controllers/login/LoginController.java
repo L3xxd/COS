@@ -1,4 +1,4 @@
-package com.l3xxd.cos_alpha.Controllers;
+package com.l3xxd.cos_alpha.controllers.login;
 
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -10,14 +10,20 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
 
 public class LoginController implements Initializable {
 
@@ -36,12 +42,14 @@ public class LoginController implements Initializable {
     @FXML
     private Pane paneFloating;
 
-
     @FXML
     private TextField userTextField;
 
     @FXML
     private PasswordField passwordTextField;
+
+    @FXML
+    private Button enterButton;
 
     private boolean isDarkMode = false;
 
@@ -50,7 +58,13 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // 🕒 Reloj en tiempo real
+        setupClock();
+        setupThemeToggle();
+        setupPlaceholders();
+        enterButton.setOnAction(this::handleLogin);
+    }
+
+    private void setupClock() {
         DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -62,13 +76,10 @@ public class LoginController implements Initializable {
 
         clock.setCycleCount(Timeline.INDEFINITE);
         clock.play();
+    }
 
-        // 🌗 Botón de cambio de tema
+    private void setupThemeToggle() {
         themeToggleButton.setOnAction(e -> toggleTheme());
-
-        // 🧑 Placeholders interactivos
-        setupPlaceholder(userTextField, USER_PLACEHOLDER);
-        setupPlaceholder(passwordTextField, PASSWORD_PLACEHOLDER);
     }
 
     private void toggleTheme() {
@@ -80,14 +91,11 @@ public class LoginController implements Initializable {
             ObservableList<String> stylesheets = paneFloating.getStylesheets();
             stylesheets.clear();
 
-            String cssPath;
-            if (isDarkMode) {
-                cssPath = "/com/l3xxd/cos_alpha/assets/css/light-mode.css";
-                themeToggleButton.setText("Tema Oscuro");
-            } else {
-                cssPath = "/com/l3xxd/cos_alpha/assets/css/dark-mode.css";
-                themeToggleButton.setText("Tema Claro");
-            }
+            String cssPath = isDarkMode
+                    ? "/com/l3xxd/cos_alpha/assets/css/light-mode.css"
+                    : "/com/l3xxd/cos_alpha/assets/css/dark-mode.css";
+
+            themeToggleButton.setText(isDarkMode ? "Tema Oscuro" : "Tema Claro");
 
             URL cssUrl = getClass().getResource(cssPath);
             if (cssUrl != null) {
@@ -104,6 +112,11 @@ public class LoginController implements Initializable {
         });
 
         fadeOut.play();
+    }
+
+    private void setupPlaceholders() {
+        setupPlaceholder(userTextField, USER_PLACEHOLDER);
+        setupPlaceholder(passwordTextField, PASSWORD_PLACEHOLDER);
     }
 
     private void setupPlaceholder(TextField field, String placeholder) {
@@ -140,5 +153,42 @@ public class LoginController implements Initializable {
 
     private String getTextColor() {
         return isDarkMode ? "#FFFFFF" : "#000000";
+    }
+
+    private void handleLogin(ActionEvent event) {
+        // Obtiene el nodo raíz actual (login.fxml)
+        Node sourceNode = (Node) event.getSource();
+        Scene currentScene = sourceNode.getScene();
+        Stage stage = (Stage) currentScene.getWindow();
+
+        // Fade out de la escena actual
+        FadeTransition fadeOut = new FadeTransition(Duration.millis(500), currentScene.getRoot());
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+
+        fadeOut.setOnFinished(e -> {
+            try {
+                // Carga rootApp.fxml
+                Parent rootAppView = FXMLLoader.load(getClass().getResource("/com/l3xxd/cos_alpha/views/rootApp.fxml"));
+
+                // Crea nueva escena con dimensiones fijas
+                Scene newScene = new Scene(rootAppView, 1440, 900);
+                stage.setScene(newScene);
+                stage.setResizable(false);
+                stage.centerOnScreen();
+                stage.setTitle("COS_ALPHA v 2.1");
+
+                // Fade in de la nueva escena
+                FadeTransition fadeIn = new FadeTransition(Duration.millis(500), newScene.getRoot());
+                fadeIn.setFromValue(0.0);
+                fadeIn.setToValue(1.0);
+                fadeIn.play();
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        fadeOut.play();
     }
 }

@@ -1,4 +1,4 @@
-package com.l3xxd.cos_alpha.Controllers;
+package com.l3xxd.cos_alpha.controllers.layout;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
