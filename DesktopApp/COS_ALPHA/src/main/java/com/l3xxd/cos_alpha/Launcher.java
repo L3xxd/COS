@@ -10,7 +10,7 @@ public class Launcher extends Application {
     public void start(Stage stage) {
         try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/l3xxd/cos_alpha/views/login/login.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/l3xxd/cos_alpha/views/rootApp.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 1440, 900);
 
             stage.setTitle("COS_ALPHA v 2.1");

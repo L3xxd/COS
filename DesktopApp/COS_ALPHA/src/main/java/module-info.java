@@ -22,6 +22,8 @@ module com.l3xxd.cos_alpha {
     opens com.l3xxd.cos_alpha.controllers.login to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers.dashboard to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers.layout to javafx.fxml;
+    opens com.l3xxd.cos_alpha.controllers to javafx.fxml;
+
 
     requires org.kordamp.ikonli.core;
     requires org.kordamp.ikonli.fontawesome;
