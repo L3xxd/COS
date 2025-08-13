@@ -1,13 +1,11 @@
 package com.l3xxd.cos_alpha.controllers.login;
 
 import java.net.URL;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 import java.util.ResourceBundle;
 
 import javafx.animation.FadeTransition;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,9 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.event.ActionEvent;
@@ -27,17 +23,12 @@ import javafx.scene.Node;
 
 public class LoginController implements Initializable {
 
-    @FXML
-    private Text clockText;
 
-    @FXML
-    private Text dateText;
 
     @FXML
     private Button themeToggleButton;
 
-    @FXML
-    private AnchorPane paneWorkflow;
+
 
     @FXML
     private Pane paneFloating;
@@ -58,25 +49,11 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setupClock();
         setupThemeToggle();
         setupPlaceholders();
         enterButton.setOnAction(this::handleLogin);
     }
 
-    private void setupClock() {
-        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
-        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-        Timeline clock = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
-            LocalDateTime now = LocalDateTime.now();
-            clockText.setText(timeFormat.format(now));
-            dateText.setText(dateFormat.format(now));
-        }));
-
-        clock.setCycleCount(Timeline.INDEFINITE);
-        clock.play();
-    }
 
     private void setupThemeToggle() {
         themeToggleButton.setOnAction(e -> toggleTheme());
