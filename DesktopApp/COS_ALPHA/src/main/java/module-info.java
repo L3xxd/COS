@@ -24,5 +24,4 @@ module com.l3xxd.cos_alpha {
     opens com.l3xxd.cos_alpha.controllers.layout to javafx.fxml;
 
     // Abre utilidades si usas reflexión
-    opens com.l3xxd.cos_alpha.core.utils to javafx.fxml;
 }
