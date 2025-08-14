@@ -46,7 +46,7 @@ public class rootAppController {
     private void alternarTema() {
         paneWorkflow.getStylesheets().clear();
         String css = isDarkMode ? "light-mode.css" : "dark-mode.css";
-        paneWorkflow.getStylesheets().add(getClass().getResource("/com/l3xxd/cos_alpha/assets/css/" + css).toExternalForm());
+        paneWorkflow.getStylesheets().add(getClass().getResource("/com/l3xxd/cos_alpha/assets/css/login/" + css).toExternalForm());
         isDarkMode = !isDarkMode;
     }
 }

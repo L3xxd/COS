@@ -1,13 +1,28 @@
-/* 🌫️ Panel flotante con fondo #2D2F33 */
-#paneFloating {
-    -fx-background-color: #2D2F33;
 
+/* ────────────────────────────────
+  FONDO
+──────────────────────────────── */
+.background-pane {
+    -fx-background-color: #212630;
+
+
+}
+/* ────────────────────────────────
+ 🧁 PANEL FLOTANTE
+──────────────────────────────── */
+.floating-pane {
+    -fx-background-color: #2D2F33;
     -fx-padding: 2em;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 12, 0.3, 0, 4);
+    -fx-border-radius: 60;
+    -fx-background-radius: 60;
+
 }
 
-/* 🚪 Botón de entrada con fondo #0086E6 */
-#enterButton {
+/* ────────────────────────────────
+ 🚪 BOTÓN DE ENTRADA
+──────────────────────────────── */
+.button-enter {
     -fx-background-color: #0086E6;
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 1.1em;
@@ -17,33 +32,28 @@
     -fx-padding: 0.8em 2em;
     -fx-alignment: center;
     -fx-text-alignment: center;
-    -fx-transition: all 0.3s ease-in-out;
-    }
+}
 
-
-#enterButton:pressed {
-    -fx-background-color: #2D2F33   ;
+.button-enter:pressed {
+    -fx-background-color: #2D2F33;
     -fx-text-fill: #FFFFFF;
     -fx-border-color: #FFFFFF;
     -fx-border-width: 3;
 }
 
-/* 📝 Etiquetas */
-.subtitlesText {
-    -fx-font-family: "Segoe UI";
-    -fx-font-size: 1.1em;
-    -fx-text-fill: #FFFFFF;
-}
-
-/* 🔗 Hipervínculo */
-#linkText {
+/* ────────────────────────────────
+ 🔗 HIPERVÍNCULO
+──────────────────────────────── */
+.link-text {
     -fx-font-size: 0.9em;
     -fx-text-fill: #AAAAAA;
     -fx-underline: true;
 }
 
-/* 🧾 Campos de texto */
-.dataTextFields {
+/* ────────────────────────────────
+ 🧾 CAMPOS DE TEXTO
+──────────────────────────────── */
+.text-field-data {
     -fx-background-color: #3A3A3A;
     -fx-text-fill: #FFFFFF;
     -fx-border-radius: 20;
@@ -53,41 +63,55 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0.2, 0, 1);
 }
 
-/* 👋 Mensaje de bienvenida */
-
-#welcomeLabel {
+/* ────────────────────────────────
+ 👋 MENSAJE DE BIENVENIDA
+──────────────────────────────── */
+.label-welcome{
     -fx-font-family: "Segoe UI Bold";
     -fx-font-size: 51px;
-    -fx-fill: #FFFFFF;
+    -fx-fill: #ffffff;
+
 }
 
 
-#userLabel, #passwordLabel {
-    -fx-font-size: 18px;
-    -fx-fill: #FFFFFF;
-}
-
-/*  Boton para cambiar tema */
-#themeToggleButton {
+/* ────────────────────────────────
+ 🎨 BOTÓN CAMBIO DE TEMA
+──────────────────────────────── */
+.button-theme-toggle {
     -fx-background-color: #2D2F33;
     -fx-text-fill: #fff;
     -fx-font-size: 1.1em;
     -fx-font-weight: bold;
     -fx-padding: 8px 16px;
-    -fx-background-radius: 8;
-    -fx-border-radius: 8;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
     -fx-border-color: #fff;
     -fx-border-width: 1px;
     -fx-cursor: hand;
-    -fx-transition: all 0.3s ease-in-out;
+
 }
-#themeToggleButton:hover {
+
+.button-theme-toggle:hover {
     -fx-background-color: linear-gradient(to bottom right, #dfdfdf, #ffffff);
     -fx-text-fill: #2D2F33;
     -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.801), 4, 0.2, 0, 1);
+    -fx-icon-color:#2D2F33;
 }
-#themeToggleButton:pressed {
+
+.button-theme-toggle:pressed {
     -fx-background-color: #121212;
     -fx-text-fill: #cccccc;
     -fx-effect: none;
+}
+
+/* ────────────────────────────────
+ 🧾 ICONOS
+──────────────────────────────── */
+.icons-class{
+    -fx-fill: #ffffff;
+}
+.icon-theme-button{
+    -fx-icon-code:fas-sun;
+    -fx-icon-color:white;
+    -fx-icon-size:18;
 }

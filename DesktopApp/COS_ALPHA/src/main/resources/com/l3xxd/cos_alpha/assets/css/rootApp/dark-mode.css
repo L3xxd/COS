@@ -1,0 +1,58 @@
+/* ────────────────────────────────
+ 🌒 NAVBAR
+──────────────────────────────── */
+.navbar-pane {
+    -fx-background-color: #2D2F33;
+}
+
+.navbar-text {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 1.5em; /* 👈 antes era 2em */
+    -fx-text-fill: white;
+}
+
+
+/* ────────────────────────────────
+ 🎨 BOTÓN CAMBIO DE TEMA
+──────────────────────────────── */
+.button-theme-toggle {
+    -fx-background-color: #2D2F33;
+    -fx-text-fill: #fff;
+    -fx-font-size: 1.1em;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: #fff;
+    -fx-border-width: 1px;
+    -fx-cursor: hand;
+
+}
+
+.button-theme-toggle:hover {
+    -fx-background-color: linear-gradient(to bottom right, #dfdfdf, #ffffff);
+    -fx-text-fill: #2D2F33;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.801), 4, 0.2, 0, 1);
+}
+
+.button-theme-toggle:pressed {
+    -fx-background-color: #121212;
+    -fx-text-fill: #cccccc;
+    -fx-effect: none;
+}
+
+/* ────────────────────────────────────────────────────────
+ --------------------------------------------------- Menu Slider
+─────────────────────────────────────────────────────────*/
+.menu-main-pane{
+    -fx-background-color
+}
+/* ────────────────────────────────
+ 🧾 ICONOS
+──────────────────────────────── */
+
+.icon-theme-button{
+    -fx-icon-code:fas-sun;
+    -fx-icon-color:white;
+    -fx-icon-size:18;
+}

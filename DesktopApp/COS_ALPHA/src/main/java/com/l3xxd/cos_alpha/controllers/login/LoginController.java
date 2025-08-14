@@ -72,7 +72,7 @@ public class LoginController implements Initializable {
                     ? "/com/l3xxd/cos_alpha/assets/css/login/light-mode.css"
                     : "/com/l3xxd/cos_alpha/assets/css/login/dark-mode.css";
 
-            themeToggleButton.setText(isDarkMode ? "Tema Oscuro" : "Tema Claro");
+            themeToggleButton.setText(isDarkMode ? "Cambiar Oscuro" : "Cambiar Claro");
 
             URL cssUrl = getClass().getResource(cssPath);
             if (cssUrl != null) {
@@ -149,11 +149,12 @@ public class LoginController implements Initializable {
                 Parent rootAppView = FXMLLoader.load(getClass().getResource("/com/l3xxd/cos_alpha/views/rootApp.fxml"));
 
                 // Crea nueva escena con dimensiones fijas
-                Scene newScene = new Scene(rootAppView, 1440, 900);
+                Scene newScene = new Scene(rootAppView, 1920, 1080);
                 stage.setScene(newScene);
                 stage.setResizable(false);
-                stage.centerOnScreen();
                 stage.setTitle("COS_ALPHA v 2.1");
+                stage.setMaximized(true);
+
 
                 // Fade in de la nueva escena
                 FadeTransition fadeIn = new FadeTransition(Duration.millis(500), newScene.getRoot());

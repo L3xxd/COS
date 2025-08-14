@@ -2,24 +2,19 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Text?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<HBox fx:id="paneNavbar" alignment="CENTER_LEFT" prefHeight="37.5" spacing="15" style="-fx-padding: 0 15 0 15;" stylesheets="@../../assets/css/login/light-mode.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.controllers.layout.NavbarController">
+<HBox fx:id="paneNavbar" alignment="CENTER_LEFT" prefHeight="37.5" spacing="15" style="-fx-padding: 0 15 0 15;" styleClass="navbar-pane" stylesheets="@../../assets/css/rootApp/light-mode.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.controllers.layout.NavbarController">
 
     <children>
         <!-- Sección izquierda -->
         <HBox alignment="CENTER_LEFT" spacing="8">
-            <ImageView>
-                <image>
-                    <Image url="@../../assets/img/ui/menu.png" />
-                </image>
-            </ImageView>
-            <Text fx:id="menuText" fill="WHITE" styleClass="navbarText" text="Menu" />
+         <FontIcon iconColor="WHITE" iconLiteral="anto-menu" iconSize="20" />
+            <Text fx:id="menuText" fill="WHITE" styleClass="navbar-text" text="Menu" />
         </HBox>
 
         <!-- Espaciador flexible -->
@@ -30,19 +25,11 @@
         <HBox alignment="CENTER_RIGHT" spacing="10">
             <!-- Bloque: Reloj y Fecha -->
             <HBox alignment="CENTER" spacing="5">
-                <ImageView>
-                    <image>
-                        <Image url="@../../assets/img/ui/clock.png" />
-                    </image>
-                </ImageView>
-                <Text fx:id="clockText" fill="WHITE" styleClass="navbarText" text="00:00" />
+            <FontIcon iconColor="WHITE" iconLiteral="antf-clock-circle" iconSize="20" />
+                <Text fx:id="clockText" fill="WHITE" styleClass="navbar-text" text="00:00" />
                 <Separator orientation="VERTICAL" />
-                <ImageView>
-                    <image>
-                        <Image url="@../../assets/img/ui/calendar.png" />
-                    </image>
-                </ImageView>
-                <Text fx:id="dateText" fill="WHITE" styleClass="navbarText" text="01/01/2025" />
+            <FontIcon iconColor="WHITE" iconLiteral="far-calendar-alt" iconSize="20" />
+                <Text fx:id="dateText" fill="WHITE" styleClass="navbar-text" text="01/01/2025" />
             </HBox>
 
             <!-- Separador -->
@@ -50,12 +37,8 @@
 
             <!-- Bloque: Perfil -->
             <HBox alignment="CENTER" spacing="5">
-                <ImageView>
-                    <image>
-                        <Image url="@../../assets/img/ui/user-navbar.png" />
-                    </image>
-                </ImageView>
-                <Text fx:id="userprofileText" fill="WHITE" styleClass="navbarText" text="Profile" />
+            <FontIcon iconColor="WHITE" iconLiteral="fas-user" iconSize="20" />
+                <Text fx:id="userprofileText" fill="WHITE" styleClass="navbar-text" text="Profile" />
             </HBox>
 
             <!-- Separador -->
@@ -74,17 +57,10 @@
 <!--                </graphic>-->
 <!--            </Button>-->
             <!-- Bloque: Botón con ícono y texto bien distribuidos -->
-            <Button fx:id="logoutButton"
-                    text="Cerrar sesión"
-                    mnemonicParsing="false"
-                    style="-fx-content-display: LEFT; -fx-graphic-text-gap: 10; -fx-padding: 2 10 2 10;">
-                <graphic>
-                    <ImageView fitHeight="20.0" fitWidth="20.0">
-                        <image>
-                            <Image url="@../../assets/img/ui/turn-off.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
+            <Button fx:id="logoutButton" mnemonicParsing="false" styleClass="button-logout" text="Cerrar sesión">
+            <graphic>
+               <FontIcon iconColor="WHITE" iconLiteral="fas-power-off" iconSize="20" text="" />
+            </graphic>
             </Button>
 
 

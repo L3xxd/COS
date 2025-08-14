@@ -1,17 +1,22 @@
 module com.l3xxd.cos_alpha {
+    // JavaFX core
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
 
+    // UI libraries
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
-    requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    // Exporta Launcher para que JavaFX pueda instanciarlo
+    // Ikonli core
+    requires org.kordamp.ikonli.core;
+    requires org.kordamp.ikonli.javafx;
+
+    // Exporta Launcher para JavaFX
     exports com.l3xxd.cos_alpha to javafx.graphics;
 
     // Exporta y abre controladores usados en FXML
@@ -23,10 +28,9 @@ module com.l3xxd.cos_alpha {
     opens com.l3xxd.cos_alpha.controllers.dashboard to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers.layout to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers to javafx.fxml;
-
-
-    requires org.kordamp.ikonli.core;
-    requires org.kordamp.ikonli.fontawesome;
+    requires org.kordamp.ikonli.antdesignicons;
+    requires org.kordamp.ikonli.coreui;
+    requires org.kordamp.ikonli.bootstrapicons;
 
 
 }

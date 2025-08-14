@@ -2,9 +2,7 @@
 
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="paneWorkflow"
-            fx:controller="com.l3xxd.cos_alpha.controllers.rootAppController"
-            prefHeight="900.0" prefWidth="1440.0" stylesheets="@../assets/css/login/light-mode.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="paneWorkflow" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../assets/css/login/light-mode.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.controllers.rootAppController">
 
     <top>
         <fx:include source="layout/navbar.fxml" />
