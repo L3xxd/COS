@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Text?>
 
-<HBox fx:id="paneNavbar" alignment="CENTER_LEFT" prefHeight="37.5" spacing="15" style="-fx-padding: 0 15 0 15;" stylesheets="@../../assets/css/light-mode.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.controllers.layout.NavbarController">
+<HBox fx:id="paneNavbar" alignment="CENTER_LEFT" prefHeight="37.5" spacing="15" style="-fx-padding: 0 15 0 15;" stylesheets="@../../assets/css/login/light-mode.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.controllers.layout.NavbarController">
 
     <children>
         <!-- Sección izquierda -->

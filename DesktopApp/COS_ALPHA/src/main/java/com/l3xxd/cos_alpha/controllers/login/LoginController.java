@@ -69,8 +69,8 @@ public class LoginController implements Initializable {
             stylesheets.clear();
 
             String cssPath = isDarkMode
-                    ? "/com/l3xxd/cos_alpha/assets/css/light-mode.css"
-                    : "/com/l3xxd/cos_alpha/assets/css/dark-mode.css";
+                    ? "/com/l3xxd/cos_alpha/assets/css/login/light-mode.css"
+                    : "/com/l3xxd/cos_alpha/assets/css/login/dark-mode.css";
 
             themeToggleButton.setText(isDarkMode ? "Tema Oscuro" : "Tema Claro");
 
