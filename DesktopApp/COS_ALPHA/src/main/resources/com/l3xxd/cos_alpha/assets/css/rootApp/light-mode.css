@@ -1,5 +1,5 @@
 /* ────────────────────────────────────────────────────────
- --------------------------------------------------- NAVBAR
+ 🌐 NAVBAR
 ─────────────────────────────────────────────────────────*/
 .navbar-pane {
     -fx-background-color: #2D2F33;
@@ -7,34 +7,29 @@
 
 .navbar-text {
     -fx-font-family: "Segoe UI";
-    -fx-font-size: 1.5em; /* 👈 antes era 2em */
+    -fx-font-size: 1.5em;
     -fx-text-fill: white;
 }
-/* ────────────────────────────────
+
+/* ────────────────────────────────────────────────────────
  🎨 BOTÓN CAMBIO DE TEMA
-──────────────────────────────── */
+─────────────────────────────────────────────────────────*/
 .button-theme-toggle {
-    -fx-background-color: #fff;
-    -fx-text-fill: #000;
+    -fx-pref-height: 40px;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
     -fx-font-size: 1.1em;
     -fx-font-weight: bold;
     -fx-padding: 8px 16px;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
-    -fx-border-color: #000;
+    -fx-border-color: #000000;
     -fx-border-width: 1px;
     -fx-cursor: hand;
+    -fx-content-display: LEFT;
+    -fx-graphic-text-gap: 10;
+    -fx-font-family: "Segoe UI";
 }
-/* ────────────────────────────────
-  BOTÓNES MENU
-──────────────────────────────── */
-.button-menu-template{
-    -fx-background-color: #fff; /* Para JavaFX */
-    -fx-border-color: transparent;
-    -fx-cursor: hand;
-}
-
-
 
 .button-theme-toggle:hover {
     -fx-background-color: linear-gradient(to bottom right, #3a3a3a, #2a2a2a);
@@ -48,85 +43,100 @@
     -fx-effect: none;
 }
 
-.button-logout{
+/* ────────────────────────────────────────────────────────
+ 📋 BOTÓN LOGOUT
+─────────────────────────────────────────────────────────*/
+.button-logout {
     -fx-content-display: LEFT;
     -fx-graphic-text-gap: 10;
-    -fx-padding:  2 10 2 10;
+    -fx-padding: 2 10 2 10;
     -fx-font-family: "Segoe UI";
-    -fx-font-size: 1.5em; /* 👈 antes era 2em */
+    -fx-font-size: 1.5em;
     -fx-text-fill: white;
-    -fx-background-color: #2D2F33; /* Para JavaFX */
+    -fx-background-color: #2D2F33;
     -fx-border-color: transparent;
-
-
 }
 
 /* ────────────────────────────────────────────────────────
- --------------------------------------------------- Menu Slider
+ 📁 MENU SLIDER
 ─────────────────────────────────────────────────────────*/
-.menu-main-pane{
-    -fx-background-color:#fff;
+.menu-main-pane {
+    -fx-background-color: #ffffff;
 }
 
-/* ────────────────────────────────
+/* ────────────────────────────────────────────────────────
+ 📌 BOTONES DEL MENU
+─────────────────────────────────────────────────────────*/
+.button-menu-template {
+    -fx-pref-height: 48px;
+    -fx-max-width: Infinity;
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER_LEFT;
+    -fx-content-display: LEFT;
+    -fx-graphic-text-gap: 10;
+    -fx-padding: 0 14 0 14;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 1em;
+    -fx-font-weight: 500;
+    -fx-text-fill: #222222;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 2, 0.0, 0, 1);
+}
+
+.button-menu-template:hover {
+    -fx-background-color: #f2f2f2;
+}
+
+
+.button-menu-template:selected {
+    -fx-background-color: #e0f3ff;
+    -fx-text-fill: #0086E6;
+    -fx-font-weight: bold;
+    -fx-border-color: #0086E6;
+    -fx-border-width: 0 0 0 3px;
+}
+
+.button-menu-template:selected .font-icon {
+    -fx-icon-color: #0086E6;
+}
+
+
+/* ────────────────────────────────────────────────────────
  🧾 ICONOS
-──────────────────────────────── */
-
-.icon-theme-button{
-    -fx-icon-code:fas-moon;
-    -fx-icon-color:black;
-    -fx-icon-size:18;
-}
-/*
-.icon-ventas-button{
-    -fx-icon-code:fas-shopping-cart;
-    -fx-icon-color:black;
-    -fx-icon-size:18;
-}
-.icon-inventario-button{
-    -fx-icon-code:fas-box-open;
-    -fx-icon-color:black;
-    -fx-icon-size:18;
-}
-.icon-empleados-button{
-    -fx-icon-code:fas-users;
-    -fx-icon-color:black;
-    -fx-icon-size:18;
-}
-.icon-pedidos-button{
-    -fx-icon-code:fas-truck;
-    -fx-icon-color:black;
-    -fx-icon-size:18;
-}
-.icon-finanzas-button{
-    -fx-icon-code:fas-chart-line;
-    -fx-icon-color:black;
-    -fx-icon-size:18;
-}*/
-
-.icon-ventas-button{
-    -fx-icon-code:anto-shopping;
-    -fx-icon-color:black;
-    -fx-icon-size:18;
-}
-.icon-inventario-button{
-    -fx-icon-code:anto-inbox;
-    -fx-icon-color:black;
-    -fx-icon-size:18;
-}
-.icon-empleados-button{
-    -fx-icon-code:anto-team;
-    -fx-icon-color:black;
-    -fx-icon-size:18;
-}
-.icon-pedidos-button{
-    -fx-icon-code:anto-shopping-cart;
-    -fx-icon-color:black;
-    -fx-icon-size:18;
-}
-.icon-finanzas-button{
-    -fx-icon-code:anto-bar-chart;
-    -fx-icon-color:black;
-    -fx-icon-size:18;
+─────────────────────────────────────────────────────────*/
+.icon-theme-button {
+    -fx-icon-code: fas-moon;
+    -fx-icon-color: black;
+    -fx-icon-size: 32;
 }
 
+.icon-ventas-button {
+    -fx-icon-code: anto-shopping;
+    -fx-icon-color: black;
+    -fx-icon-size: 32;
+}
+
+.icon-inventario-button {
+    -fx-icon-code: anto-inbox;
+    -fx-icon-color: black;
+    -fx-icon-size: 32;
+}
+
+.icon-empleados-button {
+    -fx-icon-code: anto-team;
+    -fx-icon-color: black;
+    -fx-icon-size: 32;
+}
+
+.icon-pedidos-button {
+    -fx-icon-code: anto-shopping-cart;
+    -fx-icon-color: black;
+    -fx-icon-size: 32;
+}
+
+.icon-finanzas-button {
+    -fx-icon-code: anto-bar-chart;
+    -fx-icon-color: black;
+    -fx-icon-size: 32;
+}

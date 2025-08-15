@@ -1,7 +1,10 @@
 package com.l3xxd.cos_alpha.controllers;
 
+import javafx.css.PseudoClass;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+
+import java.util.List;
 import java.util.function.Consumer;
 
 public class MenuSliderController {
@@ -16,6 +19,9 @@ public class MenuSliderController {
     private Consumer<String> onNavigate;
     private Runnable onToggleTheme;
 
+    private static final PseudoClass SELECTED = PseudoClass.getPseudoClass("selected");
+    private List<Button> menuButtons;
+
     public void setOnNavigate(Consumer<String> handler) {
         this.onNavigate = handler;
     }
@@ -26,15 +32,44 @@ public class MenuSliderController {
 
     @FXML
     public void initialize() {
-        btnVentas.setOnAction(e -> onNavigate.accept("dashboard/ventas.fxml"));
-        btnInventario.setOnAction(e -> onNavigate.accept("dashboard/inventario.fxml"));
-        btnEmpleados.setOnAction(e -> onNavigate.accept("dashboard/empleados.fxml"));
-        btnPedidos.setOnAction(e -> onNavigate.accept("dashboard/pedidos.fxml"));
-        btnFinanzas.setOnAction(e -> onNavigate.accept("dashboard/finanzas.fxml"));
+        menuButtons = List.of(btnVentas, btnInventario, btnEmpleados, btnPedidos, btnFinanzas);
 
+        btnVentas.setOnAction(e -> {
+            navegar("dashboard/ventas.fxml");
+            seleccionar(btnVentas);
+        });
+
+        btnInventario.setOnAction(e -> {
+            navegar("dashboard/inventario.fxml");
+            seleccionar(btnInventario);
+        });
+
+        btnEmpleados.setOnAction(e -> {
+            navegar("dashboard/empleados.fxml");
+            seleccionar(btnEmpleados);
+        });
+
+        btnPedidos.setOnAction(e -> {
+            navegar("dashboard/pedidos.fxml");
+            seleccionar(btnPedidos);
+        });
+
+        btnFinanzas.setOnAction(e -> {
+            navegar("dashboard/finanzas.fxml");
+            seleccionar(btnFinanzas);
+        });
 
         btnCambiarTema.setOnAction(e -> {
             if (onToggleTheme != null) onToggleTheme.run();
         });
+    }
+
+    private void navegar(String ruta) {
+        if (onNavigate != null) onNavigate.accept(ruta);
+    }
+
+    private void seleccionar(Button botonActivo) {
+        menuButtons.forEach(b -> b.pseudoClassStateChanged(SELECTED, false));
+        botonActivo.pseudoClassStateChanged(SELECTED, true);
     }
 }
