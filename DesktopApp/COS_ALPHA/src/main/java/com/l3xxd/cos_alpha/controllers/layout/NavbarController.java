@@ -15,6 +15,8 @@ public class NavbarController {
     @FXML
     private Text dateText;
 
+    @FXML private Text userprofileText;
+
     public void initialize() {
         // Formatos personalizados
         DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("hh:mma"); // 12 horas con am/pm
@@ -30,4 +32,14 @@ public class NavbarController {
         clockTimeline.setCycleCount(Timeline.INDEFINITE);
         clockTimeline.play();
     }
+    public void setUsername(String username) {
+        userprofileText.setText("Bienvenido, " + username);
+
+        userprofileText.setOpacity(0);
+        javafx.animation.FadeTransition fadeIn = new javafx.animation.FadeTransition(Duration.millis(600), userprofileText);
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1);
+        fadeIn.play();
+    }
+
 }

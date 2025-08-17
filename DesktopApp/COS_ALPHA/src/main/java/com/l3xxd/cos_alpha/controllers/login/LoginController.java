@@ -1,12 +1,13 @@
 package com.l3xxd.cos_alpha.controllers.login;
 
+import com.l3xxd.cos_alpha.controllers.rootAppController;
 import com.l3xxd.cos_alpha.dao.OperatorsDAO;
+import com.l3xxd.cos_alpha.utils.ErrorFeedback;
 import com.l3xxd.cos_alpha.utils.FXAnimations;
 import com.l3xxd.cos_alpha.utils.PlaceholderManager;
 import com.l3xxd.cos_alpha.utils.ThemeManager;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
-import javafx.collections.ObservableList;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -70,22 +71,25 @@ public class LoginController implements Initializable {
         String username = userTextField.getText().trim();
         String password = passwordTextField.getText().trim();
 
-        hideErrorMessage();
-        clearErrorStyles();
+        ErrorFeedback.hide(errorLabel);
+        ErrorFeedback.clearErrorStyles(userTextField, passwordTextField);
 
         boolean valid = OperatorsDAO.validate(username, password);
 
         if (!valid) {
             FXAnimations.shake(paneFloating);
-            applyErrorStyles();
-            showErrorMessage("Usuario y/o Contraseña incorrectos, ingresar nuevamente los datos.");
+            ErrorFeedback.applyErrorStyles(userTextField, passwordTextField);
+            ErrorFeedback.show(errorLabel, "Usuario y/o Contraseña incorrectos, ingresar nuevamente los datos.");
             return;
         }
 
         transitionToRootApp(event);
     }
 
+
     private void transitionToRootApp(ActionEvent event) {
+        String username = userTextField.getText().trim(); // Asegura que esté definido
+
         Node sourceNode = (Node) event.getSource();
         Scene currentScene = sourceNode.getScene();
         Stage stage = (Stage) currentScene.getWindow();
@@ -96,7 +100,12 @@ public class LoginController implements Initializable {
 
         fadeOut.setOnFinished(e -> {
             try {
-                Parent rootAppView = FXMLLoader.load(getClass().getResource("/com/l3xxd/cos_alpha/views/rootApp.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/l3xxd/cos_alpha/views/rootApp.fxml"));
+                Parent rootAppView = loader.load();
+
+                com.l3xxd.cos_alpha.controllers.rootAppController rootController = loader.getController();
+                rootController.setUsername(username); // Propaga al navbar
+
                 Scene newScene = new Scene(rootAppView, 1920, 1080);
                 stage.setScene(newScene);
                 stage.setResizable(false);

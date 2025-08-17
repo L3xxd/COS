@@ -1,5 +1,6 @@
 package com.l3xxd.cos_alpha.controllers;
 
+import com.l3xxd.cos_alpha.controllers.layout.NavbarController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,22 +12,35 @@ public class rootAppController {
 
     @FXML private BorderPane paneWorkflow;
     private boolean isDarkMode = false;
+    private NavbarController navbarController;
 
     @FXML
     public void initialize() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/l3xxd/cos_alpha/views/layout/menuSlider.fxml"));
-            Node menu = loader.load();
-            MenuSliderController menuController = loader.getController();
-
+            // Cargar menú lateral
+            FXMLLoader menuLoader = new FXMLLoader(getClass().getResource("/com/l3xxd/cos_alpha/views/layout/menuSlider.fxml"));
+            Node menu = menuLoader.load();
+            MenuSliderController menuController = menuLoader.getController();
             menuController.setOnNavigate(this::cargarVista);
             menuController.setOnToggleTheme(this::alternarTema);
-
             paneWorkflow.setLeft(menu);
+
+            // Cargar navbar manualmente
+            FXMLLoader navbarLoader = new FXMLLoader(getClass().getResource("/com/l3xxd/cos_alpha/views/layout/navbar.fxml"));
+            Node navbar = navbarLoader.load();
+            navbarController = navbarLoader.getController(); // Guarda referencia
+            paneWorkflow.setTop(navbar);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+    public void setUsername(String username) {
+        if (navbarController != null) {
+            navbarController.setUsername(username);
+        }
+    }
+
 
     private void cargarVista(String fxmlPath) {
         try {
