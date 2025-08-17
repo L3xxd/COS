@@ -66,16 +66,11 @@ public class rootAppController {
      */
     private void alternarTema() {
         String css = isDarkMode ? "light-mode.css" : "dark-mode.css";
-        String fullPath = "/com/l3xxd/cos_alpha/assets/css/login/" + css;
+        String fullPath = "/com/l3xxd/cos_alpha/assets/css/rootApp/" + css;
 
         paneWorkflow.getStylesheets().clear();
         paneWorkflow.getStylesheets().add(getClass().getResource(fullPath).toExternalForm());
 
-        // Aplica también al navbar
-        if (navbarController != null) {
-            navbarController.getRoot().getStylesheets().clear();
-            navbarController.getRoot().getStylesheets().add(getClass().getResource(fullPath).toExternalForm());
-        }
 
         isDarkMode = !isDarkMode;
     }

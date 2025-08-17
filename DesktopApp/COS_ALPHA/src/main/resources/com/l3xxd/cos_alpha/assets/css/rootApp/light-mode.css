@@ -109,35 +109,35 @@
 .icon-theme-button {
     -fx-icon-code: fas-moon;
     -fx-icon-color: black;
-    -fx-icon-size: 32;
+    -fx-icon-size: 32px;
 }
 
 .icon-ventas-button {
     -fx-icon-code: anto-shopping;
     -fx-icon-color: black;
-    -fx-icon-size: 32;
+    -fx-icon-size: 32px;
 }
 
 .icon-inventario-button {
     -fx-icon-code: anto-inbox;
     -fx-icon-color: black;
-    -fx-icon-size: 32;
+    -fx-icon-size: 32px;
 }
 
 .icon-empleados-button {
     -fx-icon-code: anto-team;
     -fx-icon-color: black;
-    -fx-icon-size: 32;
+    -fx-icon-size: 32px;
 }
 
 .icon-pedidos-button {
     -fx-icon-code: anto-shopping-cart;
     -fx-icon-color: black;
-    -fx-icon-size: 32;
+    -fx-icon-size: 32px;
 }
 
 .icon-finanzas-button {
     -fx-icon-code: anto-bar-chart;
     -fx-icon-color: black;
-    -fx-icon-size: 32;
+    -fx-icon-size: 32px;
 }
