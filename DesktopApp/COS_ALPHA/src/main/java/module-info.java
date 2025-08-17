@@ -15,6 +15,15 @@ module com.l3xxd.cos_alpha {
     // Ikonli core
     requires org.kordamp.ikonli.core;
     requires org.kordamp.ikonli.javafx;
+    requires org.kordamp.ikonli.antdesignicons;
+    requires org.kordamp.ikonli.coreui;
+    requires org.kordamp.ikonli.bootstrapicons;
+
+    // JDBC & MySQL
+    requires java.sql;
+
+    // Logging
+    requires java.logging;
 
     // Exporta Launcher para JavaFX
     exports com.l3xxd.cos_alpha to javafx.graphics;
@@ -28,9 +37,5 @@ module com.l3xxd.cos_alpha {
     opens com.l3xxd.cos_alpha.controllers.dashboard to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers.layout to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers to javafx.fxml;
-    requires org.kordamp.ikonli.antdesignicons;
-    requires org.kordamp.ikonli.coreui;
-    requires org.kordamp.ikonli.bootstrapicons;
-
-
+    exports com.l3xxd.cos_alpha.config to javafx.graphics;
 }
