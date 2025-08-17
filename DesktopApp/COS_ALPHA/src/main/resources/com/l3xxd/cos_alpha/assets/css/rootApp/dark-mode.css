@@ -19,8 +19,8 @@
 ─────────────────────────────────────────────────────────*/
 .button-theme-toggle {
     -fx-pref-height: 40px;
+    -fx-background-color: #000000;
     -fx-text-fill: #fff;
-    -fx-text-fill: #000000;
     -fx-font-size: 1.1em;
     -fx-font-weight: bold;
     -fx-padding: 8px 16px;
@@ -34,17 +34,6 @@
     -fx-font-family: "Segoe UI";
 }
 
-.button-theme-toggle:hover {
-    -fx-background-color: linear-gradient(to bottom right, #3a3a3a, #2a2a2a);
-    -fx-text-fill: #ffffff;
-    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.2), 4, 0.2, 0, 1);
-}
-
-.button-theme-toggle:pressed {
-    -fx-background-color: #121212;
-    -fx-text-fill: #cccccc;
-    -fx-effect: none;
-}
 /* ────────────────────────────────────────────────────────
  📋 BOTÓN LOGOUT
 ─────────────────────────────────────────────────────────*/
@@ -66,13 +55,16 @@
     -fx-background-color: #000000;
 }
 
+.contentContainer{
+    -fx-background-color: #212630;
+}
 /* ────────────────────────────────────────────────────────
  📌 BOTONES DEL MENU
 ─────────────────────────────────────────────────────────*/
 .button-menu-template {
     -fx-pref-height: 48px;
     -fx-max-width: Infinity;
-    -fx-background-color: #111;
+    -fx-background-color: #000000;
     -fx-border-color: transparent;
     -fx-cursor: hand;
     -fx-alignment: CENTER_LEFT;
@@ -83,7 +75,6 @@
     -fx-font-size: 1em;
     -fx-font-weight: 500;
     -fx-text-fill: #ececec;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 2, 0.0, 0, 1);
 }
 
 .button-menu-template:hover {

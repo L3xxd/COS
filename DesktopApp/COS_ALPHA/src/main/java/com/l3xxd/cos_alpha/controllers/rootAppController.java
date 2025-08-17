@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.Parent;
 
 import java.net.URL;
 
@@ -65,21 +66,38 @@ public class rootAppController {
      * Alterna entre tema claro y oscuro, aplicando estilos globales.
      */
     private void alternarTema() {
-        String css = isDarkMode ? "light-mode.css" : "dark-mode.css";
-        String fullPath = "/com/l3xxd/cos_alpha/assets/css/rootApp/" + css;
-
-        paneWorkflow.getStylesheets().clear();
-        paneWorkflow.getStylesheets().add(getClass().getResource(fullPath).toExternalForm());
-
-
         isDarkMode = !isDarkMode;
+
+        String cssFile = isDarkMode ? "dark-mode.css" : "light-mode.css";
+        String cssPath = "/com/l3xxd/cos_alpha/assets/css/rootApp/" + cssFile;
+        URL cssUrl = getClass().getResource(cssPath);
+
+        if (cssUrl == null) {
+            System.err.println("ERROR: No se encontró el archivo CSS en " + cssPath);
+            return;
+        }
+
+        // Aplicar al LEFT si es Parent
+        Node leftNode = paneWorkflow.getLeft();
+        if (leftNode instanceof Parent leftParent) {
+            leftParent.getStylesheets().clear();
+            leftParent.getStylesheets().add(cssUrl.toExternalForm());
+            System.out.println("✔ Tema aplicado al LEFT");
+        } else {
+            System.err.println("❌ LEFT no es instancia de Parent");
+        }
+
+        // Aplicar al CENTER si es Parent
+        Node centerNode = paneWorkflow.getCenter();
+        if (centerNode instanceof Parent centerParent) {
+            centerParent.getStylesheets().clear();
+            centerParent.getStylesheets().add(cssUrl.toExternalForm());
+            System.out.println("✔ Tema aplicado al CENTER");
+        } else {
+            System.err.println("❌ CENTER no es instancia de Parent");
+        }
+
+        System.out.println("🌗 Tema cambiado a " + (isDarkMode ? "Oscuro" : "Claro"));
     }
 
-    /**
-     * Permite acceder al controlador del navbar desde otras vistas.
-     * @return instancia de NavbarController
-     */
-    public NavbarController getNavbarController() {
-        return navbarController;
-    }
 }
