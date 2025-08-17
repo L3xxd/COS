@@ -1,5 +1,6 @@
 package com.l3xxd.cos_alpha.controllers;
 
+import com.l3xxd.cos_alpha.controllers.layout.MenuSliderController;
 import com.l3xxd.cos_alpha.controllers.layout.NavbarController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
