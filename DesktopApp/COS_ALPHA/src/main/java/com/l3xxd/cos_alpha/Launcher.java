@@ -20,11 +20,8 @@ public class Launcher extends Application {
             Image iconoApp = new Image(getClass().getResourceAsStream("/com/l3xxd/cos_alpha/assets/img/logo/logoImage.png"));
             stage.getIcons().add(iconoApp);
             stage.setScene(scene);
-
-
-            stage.setTitle("COS_ALPHA v 5.1.1");
-            stage.setScene(scene);
             stage.setResizable(false);
+            stage.setTitle("COS_ALPHA v 2.1");
             stage.setMaximized(true);
             stage.show();
         } catch (Exception e) {

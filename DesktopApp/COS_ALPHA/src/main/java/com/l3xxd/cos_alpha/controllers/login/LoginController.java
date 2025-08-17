@@ -119,6 +119,7 @@ public class LoginController implements Initializable {
                 stage.setTitle("COS_ALPHA v 2.1");
                 stage.setMaximized(true);
 
+
                 FadeTransition fadeIn = new FadeTransition(Duration.millis(500), newScene.getRoot());
                 fadeIn.setFromValue(0.0);
                 fadeIn.setToValue(1.0);
