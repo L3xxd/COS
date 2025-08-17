@@ -55,6 +55,7 @@
     -fx-text-fill: white;
     -fx-background-color: #2D2F33;
     -fx-border-color: transparent;
+    -fx-cursor: hand;
 }
 
 /* ────────────────────────────────────────────────────────

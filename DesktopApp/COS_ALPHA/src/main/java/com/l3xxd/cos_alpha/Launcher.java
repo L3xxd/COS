@@ -20,7 +20,7 @@ public class Launcher extends Application {
             stage.setScene(scene);
 
 
-            stage.setTitle("COS_ALPHA v 2.1");
+            stage.setTitle("COS_ALPHA v 5.1.1");
             stage.setScene(scene);
             stage.setResizable(false);
             stage.setMaximized(true);
