@@ -2,9 +2,10 @@ package com.l3xxd.cos_alpha.controllers.login;
 
 import com.l3xxd.cos_alpha.dao.OperatorsDAO;
 import com.l3xxd.cos_alpha.utils.FXAnimations;
+import com.l3xxd.cos_alpha.utils.PlaceholderManager;
+import com.l3xxd.cos_alpha.utils.ThemeManager;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
-import javafx.animation.TranslateTransition;
 import javafx.collections.ObservableList;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
@@ -18,7 +19,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -50,76 +50,20 @@ public class LoginController implements Initializable {
     }
 
     private void toggleTheme() {
-        FadeTransition fadeOut = new FadeTransition(Duration.millis(300), paneFloating);
-        fadeOut.setFromValue(1.0);
-        fadeOut.setToValue(0.0);
-
-        fadeOut.setOnFinished(e -> {
-            ObservableList<String> stylesheets = paneFloating.getStylesheets();
-            stylesheets.clear();
-
-            String cssPath = isDarkMode
-                    ? "/com/l3xxd/cos_alpha/assets/css/login/light-mode.css"
-                    : "/com/l3xxd/cos_alpha/assets/css/login/dark-mode.css";
-
-            themeToggleButton.setText(isDarkMode ? "Cambiar Oscuro" : "Cambiar Claro");
-
-            URL cssUrl = getClass().getResource(cssPath);
-            if (cssUrl != null) {
-                stylesheets.add(cssUrl.toExternalForm());
-            }
-
+        ThemeManager.toggle(paneFloating, themeToggleButton, isDarkMode, () -> {
             isDarkMode = !isDarkMode;
             refreshFieldColors();
-
-            FadeTransition fadeIn = new FadeTransition(Duration.millis(300), paneFloating);
-            fadeIn.setFromValue(0.0);
-            fadeIn.setToValue(1.0);
-            fadeIn.play();
         });
-
-        fadeOut.play();
     }
 
     private void setupPlaceholders() {
-        setupPlaceholder(userTextField, USER_PLACEHOLDER);
-        setupPlaceholder(passwordTextField, PASSWORD_PLACEHOLDER);
-    }
-
-    private void setupPlaceholder(TextField field, String placeholder) {
-        field.setText(placeholder);
-        field.setStyle("-fx-text-fill: " + getHintColor() + ";");
-
-        field.focusedProperty().addListener((obs, oldVal, newVal) -> {
-            if (newVal && field.getText().equals(placeholder)) {
-                field.clear();
-                field.setStyle("-fx-text-fill: " + getTextColor() + ";");
-            } else if (!newVal && field.getText().isEmpty()) {
-                field.setText(placeholder);
-                field.setStyle("-fx-text-fill: " + getHintColor() + ";");
-            }
-        });
+        PlaceholderManager.setup(userTextField, USER_PLACEHOLDER, isDarkMode);
+        PlaceholderManager.setup(passwordTextField, PASSWORD_PLACEHOLDER, isDarkMode);
     }
 
     private void refreshFieldColors() {
-        updateFieldColor(userTextField, USER_PLACEHOLDER);
-        updateFieldColor(passwordTextField, PASSWORD_PLACEHOLDER);
-    }
-
-    private void updateFieldColor(TextField field, String placeholder) {
-        if (field.getText().equals(placeholder)) {
-            field.setStyle("-fx-text-fill: " + getHintColor() + ";");
-        } else {
-            field.setStyle("-fx-text-fill: " + getTextColor() + ";");
-        }
-    }
-
-    private String getHintColor() {
-        return isDarkMode ? "#AAAAAA" : "#888888";
-    }
-
-    private String getTextColor() {
-        return isDarkMode ? "#FFFFFF" : "#000000";
+        PlaceholderManager.refresh(userTextField, USER_PLACEHOLDER, isDarkMode);
+        PlaceholderManager.refresh(passwordTextField, PASSWORD_PLACEHOLDER, isDarkMode);
     }
 
     private void handleLogin(ActionEvent event) {
