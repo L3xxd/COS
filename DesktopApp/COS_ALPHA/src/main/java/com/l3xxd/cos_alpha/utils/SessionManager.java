@@ -1,34 +1,22 @@
 package com.l3xxd.cos_alpha.utils;
 
+import com.l3xxd.cos_alpha.models.OperatorModel;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class SessionManager {
+    private static OperatorModel currentUser;
 
-    private static final Map<String, Object> sessionData = new HashMap<>();
-
-    private SessionManager() {
-        // Evita instanciación
+    public static void setUser(OperatorModel user) {
+        currentUser = user;
     }
 
-    public static void set(String key, Object value) {
-        sessionData.put(key, value);
-    }
-
-    public static Object get(String key) {
-        return sessionData.get(key);
-    }
-
-    public static <T> T get(String key, Class<T> type) {
-        Object value = sessionData.get(key);
-        return type.isInstance(value) ? type.cast(value) : null;
+    public static OperatorModel getUser() {
+        return currentUser;
     }
 
     public static void clear() {
-        sessionData.clear();
-    }
-
-    public static boolean contains(String key) {
-        return sessionData.containsKey(key);
+        currentUser = null;
     }
 }

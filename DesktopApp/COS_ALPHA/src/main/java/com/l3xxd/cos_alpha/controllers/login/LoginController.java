@@ -1,11 +1,9 @@
 package com.l3xxd.cos_alpha.controllers.login;
 
-import com.l3xxd.cos_alpha.controllers.rootAppController;
-import com.l3xxd.cos_alpha.dao.OperatorsDAO;
-import com.l3xxd.cos_alpha.utils.ErrorFeedback;
-import com.l3xxd.cos_alpha.utils.FXAnimations;
-import com.l3xxd.cos_alpha.utils.PlaceholderManager;
-import com.l3xxd.cos_alpha.utils.ThemeManager;
+import com.l3xxd.cos_alpha.config.DBConnection;
+import com.l3xxd.cos_alpha.dao.OperatorDAO;
+import com.l3xxd.cos_alpha.models.OperatorModel;
+import com.l3xxd.cos_alpha.utils.*;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.css.PseudoClass;
@@ -21,6 +19,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.net.URL;
+import java.sql.Connection;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -74,22 +74,30 @@ public class LoginController implements Initializable {
         ErrorFeedback.hide(errorLabel);
         ErrorFeedback.clearErrorStyles(userTextField, passwordTextField);
 
-        boolean valid = OperatorsDAO.validate(username, password);
+        Connection conn = DBConnection.getConnection();
+        if (!DBConnection.isAlive(conn)) {
+            ErrorFeedback.show(errorLabel, "Error de conexión con la base de datos.");
+            FXAnimations.shake(paneFloating);
+            return;
+        }
 
-        if (!valid) {
+        OperatorDAO dao = new OperatorDAO(conn);
+        Optional<OperatorModel> operatorOpt = dao.validate(username, password);
+
+        if (operatorOpt.isEmpty()) {
             FXAnimations.shake(paneFloating);
             ErrorFeedback.applyErrorStyles(userTextField, passwordTextField);
             ErrorFeedback.show(errorLabel, "Usuario y/o Contraseña incorrectos, ingresar nuevamente los datos.");
             return;
         }
 
+        SessionManager.setUser(operatorOpt.get());
         transitionToRootApp(event);
     }
 
 
-    private void transitionToRootApp(ActionEvent event) {
-        String username = userTextField.getText().trim(); // Asegura que esté definido
 
+    private void transitionToRootApp(ActionEvent event) {
         Node sourceNode = (Node) event.getSource();
         Scene currentScene = sourceNode.getScene();
         Stage stage = (Stage) currentScene.getWindow();
@@ -103,8 +111,7 @@ public class LoginController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/l3xxd/cos_alpha/views/rootApp.fxml"));
                 Parent rootAppView = loader.load();
 
-                com.l3xxd.cos_alpha.controllers.rootAppController rootController = loader.getController();
-                rootController.setUsername(username); // Propaga al navbar
+                // Ya no necesitas pasar username, el rootAppController puede usar SessionManager.getUser()
 
                 Scene newScene = new Scene(rootAppView, 1920, 1080);
                 stage.setScene(newScene);
@@ -124,6 +131,7 @@ public class LoginController implements Initializable {
 
         fadeOut.play();
     }
+
 
     private void showErrorMessage(String message) {
         errorLabel.setText(message);

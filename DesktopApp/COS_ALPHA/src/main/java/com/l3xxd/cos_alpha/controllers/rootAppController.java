@@ -32,17 +32,19 @@ public class rootAppController {
             navbarController = navbarLoader.getController(); // Guarda referencia
             paneWorkflow.setTop(navbar);
 
+            // Mostrar nombre del operador
+            navbarController.showUserProfile();
+
         } catch (Exception e) {
+            System.err.println("Error al inicializar rootApp:");
             e.printStackTrace();
         }
     }
-    public void setUsername(String username) {
-        if (navbarController != null) {
-            navbarController.setUsername(username);
-        }
-    }
 
-
+    /**
+     * Carga dinámicamente una vista en el centro del layout.
+     * @param fxmlPath ruta relativa al archivo FXML dentro de /views/
+     */
     private void cargarVista(String fxmlPath) {
         try {
             String fullPath = "/com/l3xxd/cos_alpha/views/" + fxmlPath;
@@ -54,14 +56,35 @@ public class rootAppController {
             Node contenido = FXMLLoader.load(location);
             paneWorkflow.setCenter(contenido);
         } catch (Exception ex) {
+            System.err.println("Error al cargar vista: " + fxmlPath);
             ex.printStackTrace();
         }
     }
 
+    /**
+     * Alterna entre tema claro y oscuro, aplicando estilos globales.
+     */
     private void alternarTema() {
-        paneWorkflow.getStylesheets().clear();
         String css = isDarkMode ? "light-mode.css" : "dark-mode.css";
-        paneWorkflow.getStylesheets().add(getClass().getResource("/com/l3xxd/cos_alpha/assets/css/login/" + css).toExternalForm());
+        String fullPath = "/com/l3xxd/cos_alpha/assets/css/login/" + css;
+
+        paneWorkflow.getStylesheets().clear();
+        paneWorkflow.getStylesheets().add(getClass().getResource(fullPath).toExternalForm());
+
+        // Aplica también al navbar
+        if (navbarController != null) {
+            navbarController.getRoot().getStylesheets().clear();
+            navbarController.getRoot().getStylesheets().add(getClass().getResource(fullPath).toExternalForm());
+        }
+
         isDarkMode = !isDarkMode;
+    }
+
+    /**
+     * Permite acceder al controlador del navbar desde otras vistas.
+     * @return instancia de NavbarController
+     */
+    public NavbarController getNavbarController() {
+        return navbarController;
     }
 }
