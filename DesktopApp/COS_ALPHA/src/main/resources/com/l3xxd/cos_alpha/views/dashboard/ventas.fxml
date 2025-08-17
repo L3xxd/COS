@@ -1,15 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="810.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.controllers.dashboard.VentasController">
+<AnchorPane prefHeight="1020.0" prefWidth="1720.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.controllers.dashboard.VentasController">
    <children>
-      <Text layoutX="446.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VISTA DE VENTAS">
-         <font>
-            <Font size="51.0" />
-         </font>
-      </Text>
+      <AnchorPane layoutX="10.0" layoutY="14.0" prefHeight="983.0" prefWidth="1141.0" style="-fx-background-color: RED;">
+         <children>
+            <ScrollPane layoutX="299.0" layoutY="219.0" prefHeight="983.0" prefWidth="1141.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <GridPane prefHeight="90.0" prefWidth="176.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <Separator layoutX="1171.0" layoutY="5.0" orientation="VERTICAL" prefHeight="991.0" prefWidth="9.0" />
+      <AnchorPane layoutX="1203.0" layoutY="14.0" prefHeight="983.0" prefWidth="505.0">
+         <children>
+            <TableView layoutX="-1.0" layoutY="8.0" prefHeight="579.0" prefWidth="505.0" AnchorPane.bottomAnchor="404.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columns>
+                <TableColumn prefWidth="251.333251953125" text="ARTICULOS" />
+                <TableColumn prefWidth="72.666748046875" text="CANTIDAD" />
+                  <TableColumn prefWidth="75.0" text="PRECIO" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <AnchorPane layoutY="583.0" prefHeight="97.0" prefWidth="505.0" AnchorPane.bottomAnchor="303.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="583.0">
+               <children>
+                  <Label layoutX="29.0" text="Subtotal">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="28.0" layoutY="48.0" text="Descuento (%)">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField alignment="CENTER" layoutX="289.0" layoutY="49.0" promptText="0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="1.0" layoutY="710.0" prefHeight="38.0" prefWidth="505.0">
+               <children>
+                  <Label layoutX="29.0" text="TOTAL">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="336.0" layoutY="13.0" text="\$ 9999,999">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Button layoutX="47.0" layoutY="772.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="441.0" text="PAGAR" />
+            <Button layoutX="48.0" layoutY="881.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="160.0" text="CANCELAR" />
+            <Button layoutX="303.0" layoutY="885.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="160.0" text="TICKET" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

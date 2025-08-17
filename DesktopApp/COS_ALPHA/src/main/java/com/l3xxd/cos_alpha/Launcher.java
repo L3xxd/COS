@@ -12,7 +12,7 @@ public class Launcher extends Application {
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/l3xxd/cos_alpha/views/login/login.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
+            Scene scene = new Scene(fxmlLoader.load(), 1920, 1030);
 
             // 👇 Cargar el ícono desde recursos
             Image iconoApp = new Image(getClass().getResourceAsStream("/com/l3xxd/cos_alpha/assets/img/logo/logoImage.png"));
