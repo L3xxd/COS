@@ -134,21 +134,6 @@ public class LoginController implements Initializable {
     }
 
 
-    private void showErrorMessage(String message) {
-        errorLabel.setText(message);
-        errorLabel.setVisible(true);
-        errorLabel.setOpacity(0);
-
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), errorLabel);
-        fadeIn.setFromValue(0);
-        fadeIn.setToValue(1);
-        fadeIn.play();
-
-        PauseTransition pause = new PauseTransition(Duration.seconds(3));
-        pause.setOnFinished(e -> hideErrorMessage());
-        pause.play();
-    }
-
     private void hideErrorMessage() {
         errorLabel.setVisible(false);
         errorLabel.setOpacity(0);
@@ -159,9 +144,5 @@ public class LoginController implements Initializable {
         passwordTextField.pseudoClassStateChanged(errorClass, true);
     }
 
-    private void clearErrorStyles() {
-        userTextField.pseudoClassStateChanged(errorClass, false);
-        passwordTextField.pseudoClassStateChanged(errorClass, false);
-    }
 
 }

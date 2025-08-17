@@ -1,9 +1,6 @@
 package com.l3xxd.cos_alpha.utils;
-
 import com.l3xxd.cos_alpha.models.OperatorModel;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class SessionManager {
     private static OperatorModel currentUser;

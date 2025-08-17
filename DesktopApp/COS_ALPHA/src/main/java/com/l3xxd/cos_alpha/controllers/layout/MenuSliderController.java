@@ -1,10 +1,14 @@
 package com.l3xxd.cos_alpha.controllers.layout;
 
+import com.l3xxd.cos_alpha.utils.RolAccessManager;
 import javafx.css.PseudoClass;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 public class MenuSliderController {
@@ -72,4 +76,17 @@ public class MenuSliderController {
         menuButtons.forEach(b -> b.pseudoClassStateChanged(SELECTED, false));
         botonActivo.pseudoClassStateChanged(SELECTED, true);
     }
+    public void setRolOperador(String rol) {
+        System.out.println("[MenuSlider] Rol recibido: " + rol);
+
+        Map<String, Node> nodos = new HashMap<>();
+        nodos.put("btnVentas", btnVentas);
+        nodos.put("btnInventario", btnInventario);
+        nodos.put("btnEmpleados", btnEmpleados);
+        nodos.put("btnPedidos", btnPedidos);
+        nodos.put("btnFinanzas", btnFinanzas);
+
+        RolAccessManager.aplicarPermisos(rol, nodos);
+    }
+
 }
