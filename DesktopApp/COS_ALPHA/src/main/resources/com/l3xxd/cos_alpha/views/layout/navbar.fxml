@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- Importación de controles, layout, íconos y texto -->
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.HBox?>
@@ -7,6 +8,7 @@
 <?import javafx.scene.text.Text?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
+<!-- Barra superior de navegación -->
 <HBox fx:id="paneNavbar"
       alignment="CENTER_LEFT"
       spacing="15"
@@ -19,18 +21,19 @@
       prefHeight="37.5"
       prefWidth="Infinity">
 
-    <!-- Sección izquierda -->
+    <!-- 🔹 Sección izquierda: menú -->
     <HBox alignment="CENTER_LEFT" spacing="8">
         <FontIcon iconColor="WHITE" iconLiteral="anto-menu" iconSize="20" />
         <Text fx:id="menuText" fill="WHITE" styleClass="navbar-text" text="Menu" />
     </HBox>
 
-    <!-- Espaciador flexible -->
+    <!-- 🔸 Espaciador flexible para distribuir contenido -->
     <Region fx:id="navbarSpacer" HBox.hgrow="ALWAYS" />
 
-    <!-- Sección derecha -->
+    <!-- 🔹 Sección derecha: reloj, perfil y logout -->
     <HBox alignment="CENTER_RIGHT" spacing="10">
-        <!-- Reloj y Fecha -->
+
+        <!-- 🕒 Reloj y fecha -->
         <HBox alignment="CENTER" spacing="5">
             <FontIcon iconColor="WHITE" iconLiteral="antf-clock-circle" iconSize="20" />
             <Text fx:id="clockText" fill="WHITE" styleClass="navbar-text" text="00:00" />
@@ -41,7 +44,7 @@
 
         <Separator orientation="VERTICAL" />
 
-        <!-- Perfil -->
+        <!-- 👤 Perfil del usuario -->
         <HBox alignment="CENTER" spacing="5">
             <FontIcon iconColor="WHITE" iconLiteral="fas-user" iconSize="20" />
             <Text fx:id="userprofileText" fill="WHITE" styleClass="navbar-text" text="Bienvenido" />
@@ -49,11 +52,14 @@
 
         <Separator orientation="VERTICAL" />
 
-        <!-- Logout -->
-        <Button fx:id="logoutButton" mnemonicParsing="false" styleClass="button-logout" text="Cerrar sesión">
+        <!-- 🔌 Botón de cierre de sesión -->
+        <Button fx:id="logoutButton" mnemonicParsing="false"
+                styleClass="button-logout" text="Cerrar sesión">
             <graphic>
                 <FontIcon iconColor="WHITE" iconLiteral="fas-power-off" iconSize="20" />
             </graphic>
         </Button>
+
     </HBox>
 </HBox>
+

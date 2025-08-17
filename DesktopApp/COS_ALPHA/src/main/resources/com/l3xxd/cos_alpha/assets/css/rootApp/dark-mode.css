@@ -1,32 +1,16 @@
 /* ────────────────────────────────────────────────────────
- 🌐 NAVBAR
-─────────────────────────────────────────────────────────*/
-.navbar-pane {
-    -fx-background-color: #2D2F33;
-}
-
-.navbar-text {
-    -fx-font-family: "Segoe UI";
-    -fx-font-size: 1.5em;
-    -fx-text-fill: white;
-}
-
-
-
-
-/* ────────────────────────────────────────────────────────
- 🎨 BOTÓN CAMBIO DE TEMA
+ 🌙 BOTÓN CAMBIO DE TEMA (MODO OSCURO)
 ─────────────────────────────────────────────────────────*/
 .button-theme-toggle {
     -fx-pref-height: 40px;
     -fx-background-color: #000000;
-    -fx-text-fill: #fff;
+    -fx-text-fill: #ffffff;
     -fx-font-size: 1.1em;
     -fx-font-weight: bold;
     -fx-padding: 8px 16px;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
-    -fx-border-color: #fff;
+    -fx-border-color: #ffffff;
     -fx-border-width: 1px;
     -fx-cursor: hand;
     -fx-content-display: LEFT;
@@ -35,7 +19,7 @@
 }
 
 /* ────────────────────────────────────────────────────────
- 📋 BOTÓN LOGOUT
+ 🔓 BOTÓN LOGOUT
 ─────────────────────────────────────────────────────────*/
 .button-logout {
     -fx-content-display: LEFT;
@@ -48,18 +32,20 @@
     -fx-border-color: transparent;
     -fx-cursor: hand;
 }
+
 /* ────────────────────────────────────────────────────────
- 📁 MENU SLIDER
+ 📁 CONTENEDORES PRINCIPALES
 ─────────────────────────────────────────────────────────*/
 .menu-main-pane {
-    -fx-background-color: #000000;
+    -fx-background-color: #000000; /* Fondo del menú lateral */
 }
 
-.contentContainer{
-    -fx-background-color: #212630;
+.contentContainer {
+    -fx-background-color: #212630; /* Fondo del área de contenido */
 }
+
 /* ────────────────────────────────────────────────────────
- 📌 BOTONES DEL MENU
+ 📌 BOTONES DEL MENÚ LATERAL
 ─────────────────────────────────────────────────────────*/
 .button-menu-template {
     -fx-pref-height: 48px;
@@ -77,11 +63,12 @@
     -fx-text-fill: #ececec;
 }
 
+/* Hover visual para resaltar opción */
 .button-menu-template:hover {
     -fx-background-color: #252525;
 }
 
-
+/* Estado seleccionado con borde azul y texto destacado */
 .button-menu-template:selected {
     -fx-background-color: #272727;
     -fx-text-fill: #0086E6;
@@ -90,44 +77,51 @@
     -fx-border-width: 0 0 0 3px;
 }
 
+/* Icono dentro del botón seleccionado */
 .button-menu-template:selected .font-icon {
     -fx-icon-color: #0086E6;
 }
-/*───────────────────────────────
- 🧾 ICONOS
-──────────────────────────────── */
 
-.icon-theme-button{
-    -fx-icon-code:fas-sun;
-    -fx-icon-color:white;
+/* ────────────────────────────────────────────────────────
+ 🧾 ICONOS DEL SISTEMA
+─────────────────────────────────────────────────────────*/
+
+/* 🌞 Icono del botón de cambio de tema */
+.icon-theme-button {
+    -fx-icon-code: fas-sun;
+    -fx-icon-color: white;
     -fx-icon-size: 18px;
 }
 
-
+/* 🛒 Icono de ventas */
 .icon-ventas-button {
     -fx-icon-code: anto-shopping;
     -fx-icon-color: white;
     -fx-icon-size: 32px;
 }
 
+/* 📦 Icono de inventario */
 .icon-inventario-button {
     -fx-icon-code: anto-inbox;
     -fx-icon-color: white;
     -fx-icon-size: 32px;
 }
 
+/* 👥 Icono de empleados */
 .icon-empleados-button {
     -fx-icon-code: anto-team;
     -fx-icon-color: white;
     -fx-icon-size: 32px;
 }
 
+/* 🧾 Icono de pedidos */
 .icon-pedidos-button {
     -fx-icon-code: anto-shopping-cart;
     -fx-icon-color: white;
     -fx-icon-size: 32px;
 }
 
+/* 📊 Icono de finanzas */
 .icon-finanzas-button {
     -fx-icon-code: anto-bar-chart;
     -fx-icon-color: white;

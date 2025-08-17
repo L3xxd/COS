@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- Importación de layouts principales -->
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane fx:id="paneWorkflow" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.controllers.rootAppController">
+<!-- 📦 Contenedor raíz de la aplicación -->
+<BorderPane fx:id="paneWorkflow"
+            prefHeight="1080.0" prefWidth="1920.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.l3xxd.cos_alpha.controllers.rootAppController">
 
+    <!-- 🔝 Sección superior: navbar -->
+    <!-- Carga dinámica de navbar.fxml -->
     <top>
         <Pane fx:id="navbarContainer" />
     </top>
+
+    <!-- 📋 Sección izquierda: menú lateral -->
+    <!-- Carga dinámica de menuSlider.fxml -->
     <left>
         <Pane fx:id="menuContainer" />
     </left>
+
+    <!-- 🧩 Sección central: contenido dinámico -->
+    <!-- Aquí se cargan vistas como ventas.fxml, inventario.fxml, etc. -->
     <center>
         <Pane fx:id="contentContainer" styleClass="contentContainer" />
     </center>
-    <!-- otras secciones -->
+
 </BorderPane>

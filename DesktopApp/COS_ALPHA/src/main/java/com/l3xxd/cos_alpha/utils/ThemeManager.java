@@ -9,8 +9,20 @@ import javafx.util.Duration;
 
 import java.net.URL;
 
+/**
+ * Utilidades para aplicar temas visuales con transiciones suaves.
+ * Soporta alternancia entre modo claro/oscuro y aplicación modular por región.
+ */
 public class ThemeManager {
 
+    /**
+     * Alterna el tema visual en una vista de login.
+     * Aplica fade-out, cambia hoja de estilos y luego fade-in.
+     * @param pane contenedor principal
+     * @param toggleButton botón que activa el cambio
+     * @param isDarkMode estado actual del tema
+     * @param onToggleComplete acción adicional tras aplicar el tema
+     */
     public static void toggle(Pane pane, Button toggleButton, boolean isDarkMode, Runnable onToggleComplete) {
         FadeTransition fadeOut = new FadeTransition(Duration.millis(300), pane);
         fadeOut.setFromValue(1.0);
@@ -29,9 +41,12 @@ public class ThemeManager {
             URL cssUrl = ThemeManager.class.getResource(cssPath);
             if (cssUrl != null) {
                 stylesheets.add(cssUrl.toExternalForm());
+                System.out.println("✔ Tema aplicado: " + cssPath);
+            } else {
+                System.err.println("❌ No se encontró CSS en " + cssPath);
             }
 
-            onToggleComplete.run(); // Para refrescar colores u otras acciones
+            if (onToggleComplete != null) onToggleComplete.run();
 
             FadeTransition fadeIn = new FadeTransition(Duration.millis(300), pane);
             fadeIn.setFromValue(0.0);
@@ -42,6 +57,13 @@ public class ThemeManager {
         fadeOut.play();
     }
 
+    /**
+     * Aplica un tema visual con transición fade a múltiples regiones.
+     * @param isDarkMode estado del tema
+     * @param cssPath ruta al archivo CSS
+     * @param onComplete acción adicional tras aplicar el tema
+     * @param targets nodos visuales a estilizar
+     */
     public static void applyThemeWithFade(boolean isDarkMode, String cssPath, Runnable onComplete, Parent... targets) {
         for (Parent node : targets) {
             FadeTransition fadeOut = new FadeTransition(Duration.millis(250), node);
@@ -50,6 +72,7 @@ public class ThemeManager {
 
             fadeOut.setOnFinished(e -> {
                 node.getStylesheets().clear();
+
                 URL cssUrl = ThemeManager.class.getResource(cssPath);
                 if (cssUrl != null) {
                     node.getStylesheets().add(cssUrl.toExternalForm());
@@ -70,4 +93,3 @@ public class ThemeManager {
         }
     }
 }
-

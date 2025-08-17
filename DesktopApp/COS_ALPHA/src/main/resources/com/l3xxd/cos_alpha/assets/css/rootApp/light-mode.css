@@ -1,19 +1,7 @@
-/* ────────────────────────────────────────────────────────
- 🌐 NAVBAR
-─────────────────────────────────────────────────────────*/
-.navbar-pane {
-    -fx-background-color: #2D2F33;
-}
 
-.navbar-text {
-    -fx-font-family: "Segoe UI";
-    -fx-font-size: 1.5em;
-    -fx-text-fill: white;
-}
-
-/* ────────────────────────────────────────────────────────
- 🎨 BOTÓN CAMBIO DE TEMA
-─────────────────────────────────────────────────────────*/
+/* ────────────────────────────────
+ 🎨 BOTÓN CAMBIO DE TEMA (CLARO)
+──────────────────────────────── */
 .button-theme-toggle {
     -fx-pref-height: 40px;
     -fx-background-color: #ffffff;
@@ -31,11 +19,9 @@
     -fx-font-family: "Segoe UI";
 }
 
-
-
-/* ────────────────────────────────────────────────────────
- 📋 BOTÓN LOGOUT
-─────────────────────────────────────────────────────────*/
+/* ────────────────────────────────
+ 🔓 BOTÓN LOGOUT
+──────────────────────────────── */
 .button-logout {
     -fx-content-display: LEFT;
     -fx-graphic-text-gap: 10;
@@ -48,20 +34,20 @@
     -fx-cursor: hand;
 }
 
-/* ────────────────────────────────────────────────────────
+/* ────────────────────────────────
  📁 MENU SLIDER
-─────────────────────────────────────────────────────────*/
+──────────────────────────────── */
 .menu-main-pane {
     -fx-background-color: #ffffff;
 }
 
-.contentContainer{
+.contentContainer {
     -fx-background-color: #DFDFDF;
 }
 
-/* ────────────────────────────────────────────────────────
+/* ────────────────────────────────
  📌 BOTONES DEL MENU
-─────────────────────────────────────────────────────────*/
+──────────────────────────────── */
 .button-menu-template {
     -fx-pref-height: 48px;
     -fx-max-width: Infinity;
@@ -82,7 +68,6 @@
     -fx-background-color: #f2f2f2;
 }
 
-
 .button-menu-template:selected {
     -fx-background-color: #e0f3ff;
     -fx-text-fill: #0086E6;
@@ -95,10 +80,9 @@
     -fx-icon-color: #0086E6;
 }
 
-
-/* ────────────────────────────────────────────────────────
+/* ────────────────────────────────
  🧾 ICONOS
-─────────────────────────────────────────────────────────*/
+──────────────────────────────── */
 .icon-theme-button {
     -fx-icon-code: fas-moon;
     -fx-icon-color: black;

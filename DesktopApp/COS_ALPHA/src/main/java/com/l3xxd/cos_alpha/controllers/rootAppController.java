@@ -14,16 +14,23 @@ import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 import java.net.URL;
 
+/**
+ * Controlador principal de la aplicación (rootApp).
+ * Carga el layout base, gestiona navegación, tema visual y control de acceso por rol.
+ */
 public class rootAppController {
 
     @FXML private BorderPane paneWorkflow;
+
     private boolean isDarkMode = false;
     private NavbarController navbarController;
 
+    /**
+     * Inicializa la aplicación: carga menú, navbar y aplica rol del operador.
+     */
     @FXML
     public void initialize() {
         try {
-            // Obtener operador en sesión
             OperatorModel operador = SessionManager.getUser();
             if (operador == null) {
                 System.err.println("[RootApp] ❌ No hay operador en sesión.");
@@ -33,20 +40,53 @@ public class rootAppController {
             String rol = operador.getRol();
             System.out.println("[RootApp] ✅ Rol del operador: " + rol);
 
-            // Cargar menú lateral con rol
             cargarMenuSliderConRol(rol);
+            cargarNavbar();
 
-            // Cargar navbar
+        } catch (Exception e) {
+            System.err.println("❌ Error al inicializar rootApp:");
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Carga el menú lateral y aplica el rol del operador para control de acceso visual.
+     * @param rol rol del operador ("ADMINISTRADOR", "CAJERO", etc.)
+     */
+    private void cargarMenuSliderConRol(String rol) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/l3xxd/cos_alpha/views/layout/menuSlider.fxml"));
+            Node menuSlider = loader.load();
+
+            MenuSliderController menuSliderController = loader.getController();
+            menuSliderController.setRolOperador(rol);
+            menuSliderController.setOnNavigate(this::cargarVista);
+            menuSliderController.setOnToggleTheme(this::alternarTema);
+
+            paneWorkflow.setLeft(menuSlider);
+
+            System.out.println("[RootApp] ✅ menuSlider cargado con rol: " + rol);
+
+        } catch (IOException e) {
+            System.err.println("[RootApp] ❌ Error al cargar menuSlider: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Carga el navbar superior y muestra el nombre del operador.
+     */
+    private void cargarNavbar() {
+        try {
             FXMLLoader navbarLoader = new FXMLLoader(getClass().getResource("/com/l3xxd/cos_alpha/views/layout/navbar.fxml"));
             Node navbar = navbarLoader.load();
             navbarController = navbarLoader.getController();
             paneWorkflow.setTop(navbar);
 
-            // Mostrar nombre del operador
             navbarController.showUserProfile();
 
-        } catch (Exception e) {
-            System.err.println("❌ Error al inicializar rootApp:");
+        } catch (IOException e) {
+            System.err.println("[RootApp] ❌ Error al cargar navbar:");
             e.printStackTrace();
         }
     }
@@ -60,7 +100,7 @@ public class rootAppController {
             String fullPath = "/com/l3xxd/cos_alpha/views/" + fxmlPath;
             URL location = getClass().getResource(fullPath);
             if (location == null) {
-                System.err.println("❌ ERROR: No se encontró el archivo FXML en " + fullPath);
+                System.err.println("❌ No se encontró la vista: " + fxmlPath + " → " + fullPath);
                 return;
             }
 
@@ -82,8 +122,8 @@ public class rootAppController {
         String cssFile = isDarkMode ? "dark-mode.css" : "light-mode.css";
         String cssPath = "/com/l3xxd/cos_alpha/assets/css/rootApp/" + cssFile;
 
-        Parent left = (paneWorkflow.getLeft() instanceof Parent) ? (Parent) paneWorkflow.getLeft() : null;
-        Parent center = (paneWorkflow.getCenter() instanceof Parent) ? (Parent) paneWorkflow.getCenter() : null;
+        Parent left = safeCast(paneWorkflow.getLeft());
+        Parent center = safeCast(paneWorkflow.getCenter());
 
         if (left == null || center == null) {
             System.err.println("❌ No se puede aplicar tema: LEFT o CENTER no son Parent");
@@ -96,26 +136,11 @@ public class rootAppController {
     }
 
     /**
-     * Carga el menú lateral y aplica el rol del operador para control de acceso visual.
-     * @param rol rol del operador (admin, operador, etc.)
+     * Utilidad para castear nodos a Parent de forma segura.
+     * @param node nodo a castear
+     * @return instancia de Parent o null si no aplica
      */
-    private void cargarMenuSliderConRol(String rol) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/l3xxd/cos_alpha/views/layout/menuSlider.fxml"));
-            Node menuSlider = loader.load();
-
-            MenuSliderController menuSliderController = loader.getController();
-            menuSliderController.setRolOperador(rol);
-            menuSliderController.setOnNavigate(this::cargarVista);
-            menuSliderController.setOnToggleTheme(this::alternarTema);
-
-            paneWorkflow.setLeft(menuSlider);
-
-            System.out.println("[RootApp] ✅ menuSlider cargado con rol: " + rol);
-
-        } catch (IOException e) {
-            System.err.println("[RootApp] ❌ Error al cargar menuSlider: " + e.getMessage());
-            e.printStackTrace();
-        }
+    private Parent safeCast(Node node) {
+        return (node instanceof Parent) ? (Parent) node : null;
     }
 }

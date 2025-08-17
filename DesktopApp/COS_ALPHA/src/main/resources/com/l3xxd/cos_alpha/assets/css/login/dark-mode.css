@@ -1,12 +1,10 @@
-
 /* ────────────────────────────────
-  FONDO
+ 🌌 FONDO GENERAL
 ──────────────────────────────── */
 .background-pane {
     -fx-background-color: #212630;
-
-
 }
+
 /* ────────────────────────────────
  🧁 PANEL FLOTANTE
 ──────────────────────────────── */
@@ -16,7 +14,6 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 12, 0.3, 0, 4);
     -fx-border-radius: 60;
     -fx-background-radius: 60;
-
 }
 
 /* ────────────────────────────────
@@ -66,13 +63,11 @@
 /* ────────────────────────────────
  👋 MENSAJE DE BIENVENIDA
 ──────────────────────────────── */
-.label-welcome{
+.label-welcome {
     -fx-font-family: "Segoe UI Bold";
     -fx-font-size: 51px;
     -fx-fill: #ffffff;
-
 }
-
 
 /* ────────────────────────────────
  🎨 BOTÓN CAMBIO DE TEMA
@@ -88,14 +83,13 @@
     -fx-border-color: #fff;
     -fx-border-width: 1px;
     -fx-cursor: hand;
-
 }
 
 .button-theme-toggle:hover {
     -fx-background-color: linear-gradient(to bottom right, #dfdfdf, #ffffff);
     -fx-text-fill: #2D2F33;
     -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.801), 4, 0.2, 0, 1);
-    -fx-icon-color:#2D2F33;
+    -fx-icon-color: #2D2F33;
 }
 
 .button-theme-toggle:pressed {
@@ -103,26 +97,26 @@
     -fx-text-fill: #cccccc;
     -fx-effect: none;
 }
+
 /* ────────────────────────────────
-  ERROR LABEL
+ ❗ MENSAJE DE ERROR
 ──────────────────────────────── */
 .error-label {
     -fx-text-fill: red;
     -fx-font-size: 16px;
     -fx-padding: 5 0 0 0;
-    -fx-font-family: "Segoe UI ";
+    -fx-font-family: "Segoe UI";
 }
-
 
 /* ────────────────────────────────
  🧾 ICONOS
 ──────────────────────────────── */
-.icons-class{
+.icons-class {
     -fx-fill: #ffffff;
-    
 }
-.icon-theme-button{
-    -fx-icon-code:fas-sun;
-    -fx-icon-color:white;
-    -fx-icon-size:18;
+
+.icon-theme-button {
+    -fx-icon-code: fas-sun;
+    -fx-icon-color: white;
+    -fx-icon-size: 18;
 }

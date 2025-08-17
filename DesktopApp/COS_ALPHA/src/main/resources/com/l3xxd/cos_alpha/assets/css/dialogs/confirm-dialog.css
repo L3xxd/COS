@@ -1,3 +1,4 @@
+/* Estilo base para diálogos de confirmación en modo claro */
 .light-confirm-dialog {
     -fx-background-color: #f4f6f9;
     -fx-font-family: "Segoe UI", sans-serif;
@@ -8,6 +9,7 @@
     -fx-background-radius: 10;
 }
 
+/* Encabezado del diálogo */
 .light-confirm-dialog .header-panel {
     -fx-background-color: transparent;
     -fx-text-fill: #34495e;
@@ -15,10 +17,12 @@
     -fx-font-weight: bold;
 }
 
+/* Contenido del mensaje */
 .light-confirm-dialog .content {
     -fx-text-fill: #2c3e50;
 }
 
+/* Botones de acción */
 .light-confirm-dialog .button-bar .button {
     -fx-background-color: #3498db;
     -fx-text-fill: white;
@@ -28,10 +32,12 @@
     -fx-padding: 6 12;
 }
 
+/* Hover sobre botones */
 .light-confirm-dialog .button-bar .button:hover {
     -fx-background-color: #5dade2;
 }
 
+/* Botón de cancelación */
 .light-confirm-dialog .button-bar .button:cancel {
     -fx-background-color: #bdc3c7;
     -fx-text-fill: #2c3e50;
