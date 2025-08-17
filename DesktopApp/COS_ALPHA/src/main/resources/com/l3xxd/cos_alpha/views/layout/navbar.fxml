@@ -12,7 +12,7 @@
       spacing="15"
       style="-fx-padding: 0 15 0 15;"
       styleClass="navbar-pane"
-      stylesheets="@../../assets/css/rootApp/light-mode.css"
+      stylesheets="@../../assets/css/navbar/navbar.css"
       xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.l3xxd.cos_alpha.controllers.layout.NavbarController"

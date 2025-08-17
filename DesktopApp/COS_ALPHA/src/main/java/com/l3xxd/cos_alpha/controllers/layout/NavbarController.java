@@ -111,9 +111,7 @@ public class NavbarController implements Initializable {
             stage.setMaximized(true);
             stage.show();
 
-            System.out.println("✅ Sesión cerrada, redirigido a login con dimensiones 800x600");
         } catch (Exception ex) {
-            System.err.println("❌ Error al redirigir al login:");
             ex.printStackTrace();
         }
     }
