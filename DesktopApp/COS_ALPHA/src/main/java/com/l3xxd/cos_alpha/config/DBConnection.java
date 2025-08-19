@@ -50,4 +50,15 @@ public final class DBConnection {
             return false;
         }
     }
+
+    public static void close(Connection conn) {
+        if (conn != null) {
+            try {
+                conn.close();
+                LOGGER.info("🔒 Conexión cerrada correctamente.");
+            } catch (SQLException e) {
+                LOGGER.log(Level.WARNING, "⚠️ Error al cerrar conexión.", e);
+            }
+        }
+    }
 }

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="1020.0" prefWidth="1720.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.l3xxd.cos_alpha.controllers.dashboard.empleados.EmpleadosController">
+
+    <children>
+
+        <!-- 📋 Tabla principal que muestra los operadores registrados -->
+        <AnchorPane layoutX="31.0" layoutY="89.0" prefHeight="703.0" prefWidth="1673.0">
+            <children>
+                <TableView fx:id="operadoresTable" layoutX="0.0" layoutY="0.0"
+                           prefHeight="703.0" prefWidth="1673.0"
+                           AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+                           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="100.0" />
+                        <TableColumn fx:id="colUsername" text="USUARIO" prefWidth="200.0" />
+                        <TableColumn fx:id="colRol" text="ROL" prefWidth="150.0" />
+                        <TableColumn fx:id="colNombre" text="NOMBRE" prefWidth="200.0" />
+                        <TableColumn fx:id="colApellido" text="APELLIDO" prefWidth="200.0" />
+                        <TableColumn fx:id="colEmail" text="CORREO" prefWidth="250.0" />
+                        <TableColumn fx:id="colTelefono" text="TELÉFONO" prefWidth="150.0" />
+                    </columns>
+
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+            </children>
+        </AnchorPane>
+
+        <!-- 🟢 Botón para crear un nuevo operador -->
+        <Button fx:id="addButton" layoutX="167.0" layoutY="858.0"
+                prefHeight="50.0" prefWidth="300.0" text="NUEVO OPERADOR"
+                onAction="#abrirFormularioAgregar" />
+
+        <!-- 🟡 Botón para editar el operador seleccionado -->
+        <Button fx:id="editButton" layoutX="693.0" layoutY="858.0"
+                prefHeight="50.0" prefWidth="300.0" text="EDITAR OPERADOR"
+                onAction="#abrirFormularioEditar" />
+
+        <!-- 🔴 Botón para eliminar el operador seleccionado -->
+        <Button fx:id="deleteButton" layoutX="1178.0" layoutY="858.0"
+                prefHeight="50.0" prefWidth="300.0" text="ELIMINAR OPERADOR"
+                onAction="#eliminarOperador" />
+
+        <!-- 🔍 Campo de búsqueda por usuario -->
+        <Label layoutX="89.0" layoutY="43.0" text="USUARIO" />
+        <TextField fx:id="findByUserTextField" layoutX="160.0" layoutY="36.0"
+                   prefHeight="25.0" prefWidth="360.0" />
+
+        <!-- 🔍 Campo de búsqueda por teléfono -->
+        <Label layoutX="553.0" layoutY="42.0" text="TELÉFONO" />
+        <TextField fx:id="findByPhoneTextField" layoutX="614.0" layoutY="38.0"
+                   prefHeight="25.0" prefWidth="360.0" />
+
+        <!-- 🔎 Botón para ejecutar búsqueda -->
+        <Button fx:id="searchButton" layoutX="1406.0" layoutY="30.0"
+                prefHeight="36.0" prefWidth="116.0" text="BUSCAR"
+                onAction="#buscarOperadores" />
+
+        <!-- 🔄 Botón para recargar registros -->
+        <Button fx:id="refreshButton" layoutX="1568.0" layoutY="29.0"
+                prefHeight="36.0" prefWidth="116.0" text="REFRESCAR"
+                onAction="#cargarOperadores" />
+
+    </children>
+</AnchorPane>
+
+

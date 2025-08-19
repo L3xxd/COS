@@ -70,7 +70,7 @@ public class MenuSliderController {
         });
 
         btnEmpleados.setOnAction(e -> {
-            navegar("dashboard/empleados.fxml");
+            navegar("dashboard/empleados/empleados.fxml");
             seleccionar(btnEmpleados);
         });
 

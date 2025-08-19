@@ -2,25 +2,20 @@ package com.l3xxd.cos_alpha.models;
 
 /**
  * Modelo que representa a un operador del sistema.
- * Contiene información básica como nombre, correo, rol y credenciales.
- * Es inmutable y seguro para uso en sesión.
+ * Compatible con login y operaciones CRUD.
  */
-public final class OperatorModel {
+public class OperatorModel {
 
-    private final String username;
-    private final String email;
-    private final String firstName;
-    private final String lastName;
-    private final String rol;
+    private int id;
+    private String username;
+    private String password;
+    private String rol;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phone;
 
-    /**
-     * Constructor completo del operador.
-     * @param username nombre de usuario
-     * @param email correo electrónico
-     * @param firstName nombre
-     * @param lastName apellido
-     * @param rol rol del operador ("ADMINISTRADOR", "CAJERO", etc.)
-     */
+    // 🔐 Constructor para login (sin ID ni password)
     public OperatorModel(String username, String email, String firstName, String lastName, String rol) {
         this.username = username;
         this.email = email;
@@ -29,25 +24,38 @@ public final class OperatorModel {
         this.rol = rol;
     }
 
-    public String getUsername() {
-        return username;
+    // 🧩 Constructor completo para CRUD
+    public OperatorModel(int id, String username, String password, String rol,
+                         String firstName, String lastName, String email, String phone) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.rol = rol;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    // Getters
+    public int getId() { return id; }
+    public String getUsername() { return username; }
+    public String getPassword() { return password; }
+    public String getRol() { return rol; }
+    public String getFirstName() { return firstName; }
+    public String getLastName() { return lastName; }
+    public String getEmail() { return email; }
+    public String getPhone() { return phone; }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getRol() {
-        return rol;
-    }
+    // Setters
+    public void setId(int id) { this.id = id; }
+    public void setUsername(String username) { this.username = username; }
+    public void setPassword(String password) { this.password = password; }
+    public void setRol(String rol) { this.rol = rol; }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
+    public void setLastName(String lastName) { this.lastName = lastName; }
+    public void setEmail(String email) { this.email = email; }
+    public void setPhone(String phone) { this.phone = phone; }
 
     /**
      * Representación textual del operador para trazabilidad.
