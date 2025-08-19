@@ -6,19 +6,25 @@
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
 
+<!-- 🌐 Declaración del controlador asociado -->
 <AnchorPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.l3xxd.cos_alpha.controllers.dashboard.inventario.InventarioFormController"
             prefWidth="500.0" prefHeight="600.0"
             styleClass="anchor-pane">
 
+    <!-- 📦 Contenedor principal del formulario -->
     <VBox spacing="12.0" layoutX="30.0" layoutY="30.0" prefWidth="440.0"
           styleClass="form-container">
 
+        <!-- 🏷️ Título del formulario -->
         <Label text="Formulario de Producto" styleClass="label-title" />
 
+        <!-- 📝 Campo: Nombre del producto -->
         <TextField fx:id="nombreField" promptText="Nombre del producto" styleClass="text-field" />
 
-        <ComboBox fx:id="tipoComboBox" promptText="Tipo" styleClass="combo-box">
+        <!-- 🧩 ComboBox: Tipo de producto -->
+        <ComboBox fx:id="categoriaCombo" promptText="Tipo" styleClass="combo-box">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="SENCILLO" />
@@ -27,10 +33,16 @@
             </items>
         </ComboBox>
 
+        <!-- 💰 Campo: Precio de compra -->
         <TextField fx:id="precioCompraField" promptText="Precio de compra" styleClass="text-field" />
+
+        <!-- 💸 Campo: Precio de venta -->
         <TextField fx:id="precioVentaField" promptText="Precio de venta" styleClass="text-field" />
+
+        <!-- 📦 Campo: Stock disponible -->
         <TextField fx:id="stockField" promptText="Stock disponible" styleClass="text-field" />
 
+        <!-- 🔄 ComboBox: Estado del producto -->
         <ComboBox fx:id="estadoComboBox" promptText="Estado" styleClass="combo-box">
             <items>
                 <FXCollections fx:factory="observableArrayList">
@@ -40,16 +52,19 @@
             </items>
         </ComboBox>
 
+        <!-- 🌐 Campo: URL de la foto + botón de carga -->
         <HBox spacing="10.0" styleClass="photo-url-box">
             <TextField fx:id="urlFotoField" promptText="URL de la foto" prefWidth="300.0" styleClass="text-field" />
             <Button fx:id="cargarFotoButton" text="Cargar" styleClass="button-secondary" />
         </HBox>
 
+        <!-- 🖼️ Vista previa de la imagen -->
         <ImageView fx:id="previewImageView"
                    fitWidth="200.0" fitHeight="150.0"
                    preserveRatio="true"
                    styleClass="image-preview" />
 
+        <!-- ✅ Botones de acción -->
         <HBox spacing="10.0" alignment="CENTER" styleClass="action-buttons">
             <Button fx:id="guardarButton" text="Guardar" styleClass="button-primary" />
             <Button fx:id="cancelarButton" text="Cancelar" styleClass="button-danger" />
@@ -57,3 +72,4 @@
 
     </VBox>
 </AnchorPane>
+

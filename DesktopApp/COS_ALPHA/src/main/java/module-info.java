@@ -43,5 +43,7 @@ module com.l3xxd.cos_alpha {
 
     // 🔥 Apertura crítica para modelos usados en TableView
     opens com.l3xxd.cos_alpha.models to javafx.base;
+    exports com.l3xxd.cos_alpha.controllers.dashboard.inventario to javafx.fxml;
+    opens com.l3xxd.cos_alpha.controllers.dashboard.inventario to javafx.fxml;
 }
 

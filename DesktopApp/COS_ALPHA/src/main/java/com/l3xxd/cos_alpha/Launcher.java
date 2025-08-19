@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 /**
  * Clase principal que lanza la aplicación COS_ALPHA.
  * Carga la vista de login y configura la ventana inicial.
@@ -24,7 +26,7 @@ public class Launcher extends Application {
             Scene scene = new Scene(fxmlLoader.load(), 1920, 1030);
 
             // Cargar ícono de la aplicación
-            Image iconoApp = new Image(getClass().getResourceAsStream("/com/l3xxd/cos_alpha/assets/img/logo/logoImage.png"));
+            Image iconoApp = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/l3xxd/cos_alpha/assets/img/logo/logoImage.png")));
             stage.getIcons().add(iconoApp);
 
             // Configurar ventana
