@@ -65,7 +65,7 @@ public class MenuSliderController {
         });
 
         btnInventario.setOnAction(e -> {
-            navegar("dashboard/inventario.fxml");
+            navegar("dashboard/inventario/inventario.fxml");
             seleccionar(btnInventario);
         });
 

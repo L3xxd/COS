@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.l3xxd.cos_alpha.controllers.dashboard.empleados.EmpleadoFormController"
-            prefWidth="400" prefHeight="420">
+<AnchorPane prefHeight="529.0" prefWidth="400" styleClass="anchor-pane" stylesheets="@../../../assets/css/microstyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.controllers.dashboard.empleados.EmpleadoFormController">
 
-    <VBox spacing="12" alignment="CENTER" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20"
-          AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20">
+    <VBox alignment="CENTER" spacing="12" styleClass="form-container" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20">
 
-        <Label text="Formulario de Operador" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+        <Label styleClass="label-title" text="Formulario de Empleados" />
 
-        <TextField fx:id="firstNameField" promptText="Nombre" />
-        <TextField fx:id="lastNameField" promptText="Apellido" />
-        <TextField fx:id="emailField" promptText="Correo electrónico" />
-        <TextField fx:id="phoneField" promptText="Teléfono" />
-        <PasswordField fx:id="passwordField" promptText="Contraseña" />
+        <TextField fx:id="firstNameField" promptText="Nombre(s)" styleClass="text-field" />
+        <TextField fx:id="lastNameField" promptText="Apellido(s)" styleClass="text-field" />
+        <TextField fx:id="emailField" promptText="Correo electrónico" styleClass="text-field" />
+        <TextField fx:id="phoneField" promptText="Teléfono" styleClass="text-field" />
+        <TextField fx:id="passwordField" promptText="Contraseña" styleClass="text-field" />
 
-        <ComboBox fx:id="rolComboBox" promptText="Rol" prefWidth="200" />
+        <ComboBox fx:id="rolComboBox" prefWidth="200" promptText="Puesto" styleClass="combo-box">
+        </ComboBox>
 
-        <HBox spacing="10" alignment="CENTER">
-            <Button fx:id="saveButton" text="Guardar" onAction="#guardarOperador" />
-            <Button fx:id="cancelButton" text="Cancelar" onAction="#cerrarVentana" />
+        <HBox alignment="CENTER" spacing="10">
+            <Button fx:id="saveButton" onAction="#guardarOperador" styleClass="button" text="Guardar" />
+            <Button fx:id="cancelButton" onAction="#cerrarVentana" styleClass="button" text="Cancelar" />
         </HBox>
     </VBox>
 </AnchorPane>

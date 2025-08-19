@@ -16,7 +16,7 @@ public class EmpleadoFormController {
     @FXML private TextField lastNameField;
     @FXML private TextField emailField;
     @FXML private TextField phoneField;
-    @FXML private PasswordField passwordField;
+    @FXML private TextField passwordField;
     @FXML private ComboBox<String> rolComboBox;
     @FXML private Button saveButton;
     @FXML private Button cancelButton;
