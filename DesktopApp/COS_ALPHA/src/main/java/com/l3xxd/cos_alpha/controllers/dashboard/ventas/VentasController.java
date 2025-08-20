@@ -101,6 +101,40 @@ public class VentasController {
         double total = subtotal - (subtotal * descuento / 100.0);
         lblTotal.setText(String.format("$%.2f", total));
     }
+    public void confirmarVenta() {
+        if (carrito.isEmpty()) {
+            mostrarAlerta("El carrito está vacío.");
+            return;
+        }
+
+        for (DetalleVentaModel detalle : carrito) {
+            InventarioModel inventario = detalle.getProducto();
+            int nuevoStock = inventario.getStock() - detalle.getCantidad();
+
+            if (nuevoStock < 0) {
+                mostrarAlerta("Stock insuficiente para " + inventario.getNombre());
+                return;
+            }
+
+            inventario.setStock(nuevoStock);
+            inventarioDAO.actualizarStock(inventario.getId(), nuevoStock);
+        }
+
+        mostrarAlerta("✅ Venta realizada correctamente.");
+        carrito.clear();
+        actualizarTotales();
+        tblCarrito.refresh();
+    }
+
+    private void mostrarAlerta(String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("Aviso");
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
+    }
+
+
 
 
 }

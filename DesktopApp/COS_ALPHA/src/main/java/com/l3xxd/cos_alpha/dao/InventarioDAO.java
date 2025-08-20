@@ -146,6 +146,18 @@ public class InventarioDAO {
 
         return lista;
     }
+    public void actualizarStock(int id, int nuevoStock) {
+        String sql = "UPDATE productos SET stock = ? WHERE id = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, nuevoStock);
+            stmt.setInt(2, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 }
