@@ -88,6 +88,8 @@ public class VentasController {
         actualizarTotales();
     }
 
+
+
     private void actualizarTotales() {
         double subtotal = carrito.stream().mapToDouble(DetalleVentaModel::getTotal).sum();
         double descuento = 0.0;

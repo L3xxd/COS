@@ -17,6 +17,7 @@ public class ProductoCardController {
     @FXML private Spinner<Integer> spinnerCantidad;
     @FXML private Button btnAgregar;
 
+
     private InventarioModel producto;
     private Consumer<DetalleVentaModel> onAgregar;
 
@@ -35,4 +36,6 @@ public class ProductoCardController {
             onAgregar.accept(detalle);
         });
     }
+
+
 }
