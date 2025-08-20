@@ -55,7 +55,7 @@ public class VentasController {
 
         for (InventarioModel producto : productos) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/l3xxd/cos_alpha/views/components/ProductoCard.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/l3xxd/cos_alpha/views/dashboard/ventas/ProductoCard.fxml"));
                 Node card = loader.load();
 
                 ProductoCardController controller = loader.getController();
