@@ -60,7 +60,7 @@ public class MenuSliderController {
         menuButtons = List.of(btnVentas, btnInventario, btnEmpleados, btnPedidos, btnFinanzas);
 
         btnVentas.setOnAction(e -> {
-            navegar("dashboard/ventas.fxml");
+            navegar("dashboard/ventas/ventas.fxml");
             seleccionar(btnVentas);
         });
 
@@ -75,7 +75,7 @@ public class MenuSliderController {
         });
 
         btnPedidos.setOnAction(e -> {
-            navegar("dashboard/pedidos.fxml");
+            navegar("dashboard/pedidos/pedidos.fxml");
             seleccionar(btnPedidos);
         });
 

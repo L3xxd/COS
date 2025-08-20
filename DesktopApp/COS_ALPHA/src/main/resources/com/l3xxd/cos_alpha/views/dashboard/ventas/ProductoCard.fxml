@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="5.0" style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-padding: 10;"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.l3xxd.cos_alpha.controllers.dashboard.ventas.ProductoCardController">
+    <children>
+        <ImageView fx:id="imgProducto" fitHeight="100.0" fitWidth="150.0" />
+        <Label fx:id="lblNombre" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+        <Label fx:id="lblPrecio" style="-fx-font-size: 14px;" />
+        <Spinner fx:id="spinnerCantidad" prefWidth="80.0" />
+        <Button fx:id="btnAgregar" text="Agregar" prefWidth="150.0" />
+    </children>
+</VBox>

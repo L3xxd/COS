@@ -64,5 +64,9 @@ public class OperatorModel {
     public String toString() {
         return String.format("OperatorModel[%s %s, username=%s, rol=%s]", firstName, lastName, username, rol);
     }
+    public String getNombreCompleto() {
+        return firstName + " " + lastName;
+    }
+
 }
 

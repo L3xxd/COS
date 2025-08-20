@@ -111,5 +111,42 @@ public class InventarioDAO {
                 rs.getString("url_photo")
         );
     }
+    public InventarioModel obtenerPorId(int id) {
+        String sql = "SELECT id, name, type, price_purchase, price_sale, stock, status, url_photo FROM productos WHERE id = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return mapear(rs);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+    public List<InventarioModel> obtenerDisponiblesParaVenta() {
+        List<InventarioModel> lista = new ArrayList<>();
+        String sql = """
+        SELECT id, name, type, price_purchase, price_sale, stock, status, url_photo
+        FROM productos
+        WHERE status = 'Activo' AND stock > 0
+    """;
+
+        try (Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                lista.add(mapear(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return lista;
+    }
+
+
 }
 

@@ -24,6 +24,7 @@ module com.l3xxd.cos_alpha {
 
     // Logging
     requires java.logging;
+    requires java.desktop;
 
     // Exporta Launcher para JavaFX
     exports com.l3xxd.cos_alpha to javafx.graphics;
@@ -35,11 +36,19 @@ module com.l3xxd.cos_alpha {
     exports com.l3xxd.cos_alpha.controllers.dashboard.empleados to javafx.fxml;
     exports com.l3xxd.cos_alpha.config to javafx.graphics;
 
+
     opens com.l3xxd.cos_alpha.controllers.login to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers.dashboard to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers.layout to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers.dashboard.empleados to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers to javafx.fxml;
+    exports com.l3xxd.cos_alpha.controllers.dashboard.pedidos to javafx.fxml;
+    opens com.l3xxd.cos_alpha.controllers.dashboard.pedidos to javafx.fxml;
+    exports com.l3xxd.cos_alpha.controllers.dashboard.ventas;
+    opens com.l3xxd.cos_alpha.controllers.dashboard.ventas;
+
+
+
 
     // 🔥 Apertura crítica para modelos usados en TableView
     opens com.l3xxd.cos_alpha.models to javafx.base;

@@ -59,4 +59,14 @@ public class InventarioModel {
     public String getUrlFoto() { return urlFoto.get(); }
     public void setUrlFoto(String value) { urlFoto.set(value); }
     public StringProperty urlFotoProperty() { return urlFoto; }
+    // Alias para compatibilidad con PedidoDetalleModel
+    public int getIdProducto() {
+        return getId();
+    }
+    @Override
+    public String toString() {
+        return String.format("%s (%s) - Stock: %d", getNombre(), getTipo(), getStock());
+    }
+
+
 }
