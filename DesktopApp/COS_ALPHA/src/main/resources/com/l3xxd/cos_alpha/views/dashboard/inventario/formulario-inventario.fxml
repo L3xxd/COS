@@ -41,6 +41,10 @@
 
         <!-- 📦 Campo: Stock disponible -->
         <TextField fx:id="stockField" promptText="Stock disponible" styleClass="text-field" />
+        <Label fx:id="stockActualLabel" text="Stock actual: 0" />
+        <TextField fx:id="ajusteStockField" promptText="Cantidad a ajustar (+/-)" />
+        <Label fx:id="stockPreviewLabel" text="Stock resultante: 0" />
+
 
         <!-- 🔄 ComboBox: Estado del producto -->
         <ComboBox fx:id="estadoComboBox" promptText="Estado" styleClass="combo-box">
@@ -55,7 +59,9 @@
         <!-- 🌐 Campo: URL de la foto + botón de carga -->
         <HBox spacing="10.0" styleClass="photo-url-box">
             <TextField fx:id="urlFotoField" promptText="URL de la foto" prefWidth="300.0" styleClass="text-field" />
-            <Button fx:id="cargarFotoButton" text="Cargar" styleClass="button-secondary" />
+            <Button fx:id="btnCargarDesdeURL" text="Cargar desde URL" onAction="#cargarImagenDesdeURL"/>
+            <Button fx:id="btnSeleccionarArchivo" text="Seleccionar archivo" onAction="#seleccionarImagenDesdeArchivo"/>
+
         </HBox>
 
         <!-- 🖼️ Vista previa de la imagen -->
@@ -66,7 +72,7 @@
 
         <!-- ✅ Botones de acción -->
         <HBox spacing="10.0" alignment="CENTER" styleClass="action-buttons">
-            <Button fx:id="guardarButton" text="Guardar" styleClass="button-primary" />
+            <Button fx:id="guardarButton" text="Guardar" styleClass="button-primary" onAction="#guardarProducto"/>
             <Button fx:id="cancelarButton" text="Cancelar" styleClass="button-danger" />
         </HBox>
 

@@ -25,6 +25,8 @@
                 </items>
             </ComboBox>
             <Button fx:id="searchButton" styleClass="button" text="Buscar" />
+            <Button fx:id="refreshButton" text="Refrescar" />
+
         </VBox>
 
         <!-- Tabla central -->

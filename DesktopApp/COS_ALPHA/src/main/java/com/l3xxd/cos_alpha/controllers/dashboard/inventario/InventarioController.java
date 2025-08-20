@@ -35,6 +35,7 @@ public class InventarioController {
     @FXML private Button addButton;
     @FXML private Button editButton;
     @FXML private Button deleteButton;
+    @FXML private Button refreshButton;
 
     private final InventarioDAO inventarioDAO;
     private final ObservableList<InventarioModel> productosList = FXCollections.observableArrayList();
@@ -64,6 +65,10 @@ public class InventarioController {
 
     private void cargarProductos() {
         productosList.setAll(inventarioDAO.obtenerTodos());
+        actualizarTabla();
+    }
+
+    private void actualizarTabla() {
         productosTable.setItems(productosList);
     }
 
@@ -72,13 +77,20 @@ public class InventarioController {
         addButton.setOnAction(e -> abrirFormulario("Agregar", null));
         editButton.setOnAction(e -> editarProducto());
         deleteButton.setOnAction(e -> eliminarProducto());
+        refreshButton.setOnAction(e -> cargarProductos());
     }
 
     private void buscarProductos() {
         String nombre = findByNameTextField.getText().trim();
         String categoria = categoriaComboBox.getValue();
+
+        if ((nombre == null || nombre.isEmpty()) && (categoria == null || categoria.isEmpty())) {
+            mostrarAlerta("Ingresa al menos un filtro para buscar.");
+            return;
+        }
+
         productosList.setAll(inventarioDAO.buscar(nombre, categoria));
-        productosTable.setItems(productosList);
+        actualizarTabla();
     }
 
     private void editarProducto() {
@@ -106,7 +118,7 @@ public class InventarioController {
 
             cargarProductos();
         } catch (IOException e) {
-            e.printStackTrace();
+            mostrarAlerta("Error al abrir el formulario: " + e.getMessage());
         }
     }
 
@@ -136,4 +148,6 @@ public class InventarioController {
         alerta.showAndWait();
     }
 }
+
+
 

@@ -49,6 +49,45 @@ public class InventarioDAO {
         return lista;
     }
 
+    public void insertar(InventarioModel producto) {
+        String sql = "INSERT INTO productos (name, type, price_purchase, price_sale, stock, status, url_photo) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, producto.getNombre());
+            stmt.setString(2, producto.getTipo());
+            stmt.setDouble(3, producto.getPrecioCompra());
+            stmt.setDouble(4, producto.getPrecioVenta());
+            stmt.setInt(5, producto.getStock());
+            stmt.setString(6, producto.getEstado());
+            stmt.setString(7, producto.getUrlFoto());
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void actualizar(InventarioModel producto) {
+        String sql = "UPDATE productos SET name = ?, type = ?, price_purchase = ?, price_sale = ?, stock = ?, status = ?, url_photo = ? " +
+                "WHERE id = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, producto.getNombre());
+            stmt.setString(2, producto.getTipo());
+            stmt.setDouble(3, producto.getPrecioCompra());
+            stmt.setDouble(4, producto.getPrecioVenta());
+            stmt.setInt(5, producto.getStock());
+            stmt.setString(6, producto.getEstado());
+            stmt.setString(7, producto.getUrlFoto());
+            stmt.setInt(8, producto.getId());
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void eliminar(int id) {
         String sql = "DELETE FROM productos WHERE id = ?";
 
@@ -73,3 +112,4 @@ public class InventarioDAO {
         );
     }
 }
+
