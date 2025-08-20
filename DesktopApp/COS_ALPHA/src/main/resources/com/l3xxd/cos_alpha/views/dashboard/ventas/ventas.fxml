@@ -73,6 +73,12 @@
                 </AnchorPane>
 
                 <Button layoutX="47.0" layoutY="772.0" prefHeight="73.0" prefWidth="441.0" text="PAGAR"  onAction="#confirmarVenta"/>
+                <Button fx:id="btnLimpiarCarrito"
+                        layoutX="250.0" layoutY="881.0"
+                        prefHeight="73.0" prefWidth="160.0"
+                        text="LIMPIAR"
+                        onAction="#limpiarCarrito" />
+
 
 
             </children>

@@ -29,6 +29,7 @@ public class VentasController {
     @FXML private TextField txtDescuento;
     @FXML private Label lblTotal;
     InventarioDAO inventarioDAO;
+    @FXML private Button btnLimpiarCarrito;
 
 
     private final ObservableList<DetalleVentaModel> carrito = FXCollections.observableArrayList();
@@ -132,6 +133,18 @@ public class VentasController {
         alerta.setHeaderText(null);
         alerta.setContentText(mensaje);
         alerta.showAndWait();
+    }
+    @FXML
+    public void limpiarCarrito() {
+        if (carrito.isEmpty()) {
+            mostrarAlerta("El carrito ya está vacío.");
+            return;
+        }
+
+        carrito.clear();
+        tblCarrito.refresh();
+        actualizarTotales();
+        mostrarAlerta("🧹 Carrito limpiado correctamente.");
     }
 
 

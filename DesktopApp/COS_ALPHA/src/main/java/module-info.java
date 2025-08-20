@@ -1,10 +1,12 @@
 module com.l3xxd.cos_alpha {
-    // JavaFX core
+    // JavaFX
+    requires javafx.graphics;
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
+    requires javafx.swing;
 
-    // UI libraries
+    // 3rd-party UI
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
@@ -12,47 +14,34 @@ module com.l3xxd.cos_alpha {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    // Ikonli core
+    // Ikonli
     requires org.kordamp.ikonli.core;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.antdesignicons;
     requires org.kordamp.ikonli.coreui;
     requires org.kordamp.ikonli.bootstrapicons;
 
-    // JDBC & MySQL
+    // JDBC & utilidades
     requires java.sql;
-
-    // Logging
     requires java.logging;
     requires java.desktop;
 
-    // Exporta Launcher para JavaFX
-    exports com.l3xxd.cos_alpha to javafx.graphics;
-
-    // Exporta y abre controladores usados en FXML
-    exports com.l3xxd.cos_alpha.controllers.login to javafx.fxml;
-    exports com.l3xxd.cos_alpha.controllers.dashboard to javafx.fxml;
-    exports com.l3xxd.cos_alpha.controllers.layout to javafx.fxml;
-    exports com.l3xxd.cos_alpha.controllers.dashboard.empleados to javafx.fxml;
-    exports com.l3xxd.cos_alpha.config to javafx.graphics;
-
-
+    // ---- Aperturas para FXML/reflexión ----
+    // Controladores y vistas (FXML necesita "opens")
+    opens com.l3xxd.cos_alpha to javafx.fxml;
+    opens com.l3xxd.cos_alpha.controllers to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers.login to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers.dashboard to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers.layout to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers.dashboard.empleados to javafx.fxml;
-    opens com.l3xxd.cos_alpha.controllers to javafx.fxml;
-    exports com.l3xxd.cos_alpha.controllers.dashboard.pedidos to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers.dashboard.pedidos to javafx.fxml;
-    exports com.l3xxd.cos_alpha.controllers.dashboard.ventas;
-    opens com.l3xxd.cos_alpha.controllers.dashboard.ventas;
-
-
-
-
-    // 🔥 Apertura crítica para modelos usados en TableView
-    opens com.l3xxd.cos_alpha.models to javafx.base;
-    exports com.l3xxd.cos_alpha.controllers.dashboard.inventario to javafx.fxml;
+    opens com.l3xxd.cos_alpha.controllers.dashboard.ventas to javafx.fxml;
     opens com.l3xxd.cos_alpha.controllers.dashboard.inventario to javafx.fxml;
-}
 
+    // Modelos con propiedades usadas por TableView/Bindings (javafx.base)
+    opens com.l3xxd.cos_alpha.models to javafx.base;
+
+    // (Normalmente no necesitas exports; si otro módulo usa tus APIs públicas, entonces sí)
+    exports com.l3xxd.cos_alpha;
+
+}
