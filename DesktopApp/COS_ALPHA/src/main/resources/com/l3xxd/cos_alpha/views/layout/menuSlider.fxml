@@ -43,7 +43,7 @@
         </Button>
 
         <!-- 🧭 Botón: Finanzas -->
-        <Button fx:id="btnFinanzas" disable="true" maxWidth="Infinity" styleClass="button-menu-template" text="FINANZAS" visible="false">
+        <Button fx:id="btnFinanzas" maxWidth="Infinity" styleClass="button-menu-template" text="FINANZAS" visible="false">
             <graphic>
                 <FontIcon styleClass="icon-finanzas-button" />
             </graphic>

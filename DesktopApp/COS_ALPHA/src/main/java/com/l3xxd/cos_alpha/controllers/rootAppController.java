@@ -61,9 +61,15 @@ public class rootAppController {
             MenuSliderController menuSliderController = loader.getController();
             menuSliderController.setRolOperador(rol);
             menuSliderController.setOnNavigate(this::cargarVista);
-            menuSliderController.setOnToggleTheme(this::alternarTema);
+            menuSliderController.setOnToggleTheme(this::alternarTemaGlobal);
 
             paneWorkflow.setLeft(menuSlider);
+            // Aplica solo el CSS del layout al panel izquierdo (mantener estilos propios)
+            Parent leftInit = safeCast(paneWorkflow.getLeft());
+            if (leftInit != null) {
+                String initCssRoot = "/com/l3xxd/cos_alpha/assets/css/rootApp/" + (isDarkMode ? "dark-mode.css" : "light-mode.css");
+                ThemeManager.applyThemeWithFade(false, null, leftInit, initCssRoot);
+            }
 
             System.out.println("[RootApp] ✅ menuSlider cargado con rol: " + rol);
 
@@ -106,6 +112,13 @@ public class rootAppController {
 
             Node contenido = FXMLLoader.load(location);
             paneWorkflow.setCenter(contenido);
+            // Aplica el tema actual al centro (rootApp + global)
+            Parent centerInit = safeCast(paneWorkflow.getCenter());
+            if (centerInit != null) {
+                String cssRoot = "/com/l3xxd/cos_alpha/assets/css/rootApp/" + (isDarkMode ? "dark-mode.css" : "light-mode.css");
+                String cssTheme = "/com/l3xxd/cos_alpha/assets/css/theme/theme-" + (isDarkMode ? "dark" : "light") + ".css";
+                ThemeManager.applyThemeWithFade(false, null, centerInit, cssRoot, cssTheme);
+            }
 
         } catch (Exception ex) {
             System.err.println("❌ Error al cargar vista: " + fxmlPath);
@@ -133,6 +146,35 @@ public class rootAppController {
         ThemeManager.applyThemeWithFade(isDarkMode, cssPath, () -> {
             System.out.println("🌗 Tema cambiado a " + (isDarkMode ? "Oscuro" : "Claro"));
         }, left, center);
+    }
+
+    /**
+     * Nuevo alternador de tema global (preferido).
+     * Aplica el tema del layout (rootApp) y una hoja global de la app,
+     * preservando estilos específicos de cada vista.
+     */
+    private void alternarTemaGlobal() {
+        isDarkMode = !isDarkMode;
+
+        String cssFile = isDarkMode ? "dark-mode.css" : "light-mode.css";
+        String cssRootApp = "/com/l3xxd/cos_alpha/assets/css/rootApp/" + cssFile;
+        String cssTheme   = "/com/l3xxd/cos_alpha/assets/css/theme/theme-" + (isDarkMode ? "dark" : "light") + ".css";
+
+        Parent left = safeCast(paneWorkflow.getLeft());
+        Parent center = safeCast(paneWorkflow.getCenter());
+
+        if (left == null || center == null) {
+            System.err.println("[Theme] No se puede aplicar tema: LEFT o CENTER no son Parent");
+            return;
+        }
+
+        // Sidebar (LEFT): mantener estilos propios del layout; no aplicar tema global
+        ThemeManager.applyThemeWithFade(isDarkMode, () -> {
+            System.out.println("[Theme] Tema cambiado a " + (isDarkMode ? "Oscuro" : "Claro"));
+        }, left, cssRootApp);
+
+        // Contenido (CENTER): aplicar layout + tema global
+        ThemeManager.applyThemeWithFade(isDarkMode, null, center, cssRootApp, cssTheme);
     }
 
     /**

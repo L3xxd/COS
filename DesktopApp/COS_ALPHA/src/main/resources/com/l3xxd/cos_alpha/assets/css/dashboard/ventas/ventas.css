@@ -1,6 +1,6 @@
 /* Button styles scoped to ventas view */
 
-.ventas-button-primary {
+.button.ventas-button-primary {
   -fx-background-color: linear-gradient(#2ecc71, #27ae60);
   -fx-text-fill: white;
   -fx-font-size: 18px;
@@ -12,15 +12,15 @@
   -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0.0, 0.0, 2.0);
 }
 
-.ventas-button-primary:hover {
+.button.ventas-button-primary:hover {
   -fx-background-color: linear-gradient(#34d581, #2ecc71);
 }
 
-.ventas-button-primary:pressed {
+.button.ventas-button-primary:pressed {
   -fx-background-color: #27ae60;
 }
 
-.ventas-button-danger {
+.button.ventas-button-danger {
   -fx-background-color: linear-gradient(#e74c3c, #c0392b);
   -fx-text-fill: white;
   -fx-font-size: 14px;
@@ -32,11 +32,10 @@
   -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 6, 0.0, 0.0, 1.5);
 }
 
-.ventas-button-danger:hover {
+.button.ventas-button-danger:hover {
   -fx-background-color: linear-gradient(#ee5e4f, #e74c3c);
 }
 
-.ventas-button-danger:pressed {
+.button.ventas-button-danger:pressed {
   -fx-background-color: #c0392b;
 }
-

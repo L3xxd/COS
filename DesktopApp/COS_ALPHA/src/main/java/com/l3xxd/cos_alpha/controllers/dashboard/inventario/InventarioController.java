@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import com.l3xxd.cos_alpha.utils.ThemeManager;
 
 import java.sql.Connection;
 import java.io.IOException;
@@ -113,7 +114,21 @@ public class InventarioController {
 
             Stage stage = new Stage();
             stage.setTitle(modo + " Producto");
-            stage.setScene(new Scene(pane));
+            Scene scene = new Scene(pane);
+
+            // Detectar tema actual desde la escena del inventario y aplicarlo al popup
+            boolean isDark = false;
+            if (productosTable != null && productosTable.getScene() != null) {
+                isDark = productosTable.getScene().getStylesheets().stream()
+                        .anyMatch(s -> s.contains("/assets/css/rootApp/dark-mode.css") || s.contains("/assets/css/theme/theme-dark.css"));
+            }
+
+            String cssRoot = "/com/l3xxd/cos_alpha/assets/css/rootApp/" + (isDark ? "dark-mode.css" : "light-mode.css");
+            String cssTheme = "/com/l3xxd/cos_alpha/assets/css/theme/theme-" + (isDark ? "dark" : "light") + ".css";
+            // Aplica tema (no elimina micro-estilos definidos en el FXML del formulario)
+            ThemeManager.applyThemeWithFade(isDark, null, pane, cssRoot, cssTheme);
+
+            stage.setScene(scene);
             stage.showAndWait();
 
             cargarProductos();

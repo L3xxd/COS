@@ -76,13 +76,13 @@ public class ThemeManager {
 
             fadeOut.setOnFinished(e -> {
                 // Elimina únicamente los estilos previos del tema global
-                node.getStylesheets().removeIf(url -> url.contains("/assets/css/rootApp/"));
+                node.getStylesheets().removeIf(url -> url.contains("/assets/css/rootApp/") || url.contains("/assets/css/theme/"));
 
                 URL cssUrl = ThemeManager.class.getResource(cssPath);
                 if (cssUrl != null) {
                     String newUrl = cssUrl.toExternalForm();
                     if (!node.getStylesheets().contains(newUrl)) {
-                        node.getStylesheets().add(newUrl);
+                        node.getStylesheets().add(newUrl); // tema al final: mayor precedencia sobre micro-estilos
                     }
                     System.out.println("[Theme] Estilo aplicado a " + node.getClass().getSimpleName());
                 } else {
@@ -100,5 +100,40 @@ public class ThemeManager {
             fadeOut.play();
         }
     }
-}
 
+    /**
+     * Variante que permite aplicar varias hojas de estilo de tema en un paso.
+     * Primero elimina cualquier tema previo (rootApp o theme) y luego agrega
+     * las hojas provistas en el orden recibido.
+     */
+    public static void applyThemeWithFade(boolean isDarkMode, Runnable onComplete, Parent target, String... cssPaths) {
+        FadeTransition fadeOut = new FadeTransition(Duration.millis(250), target);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+
+        fadeOut.setOnFinished(e -> {
+            target.getStylesheets().removeIf(url -> url.contains("/assets/css/rootApp/") || url.contains("/assets/css/theme/"));
+
+            for (String cssPath : cssPaths) {
+                URL cssUrl = ThemeManager.class.getResource(cssPath);
+                if (cssUrl != null) {
+                    String newUrl = cssUrl.toExternalForm();
+                    if (!target.getStylesheets().contains(newUrl)) {
+                        target.getStylesheets().add(newUrl); // tema al final con mayor precedencia
+                    }
+                } else {
+                    System.err.println("[Theme] CSS no encontrado: " + cssPath);
+                }
+            }
+
+            if (onComplete != null) onComplete.run();
+
+            FadeTransition fadeIn = new FadeTransition(Duration.millis(250), target);
+            fadeIn.setFromValue(0.0);
+            fadeIn.setToValue(1.0);
+            fadeIn.play();
+        });
+
+        fadeOut.play();
+    }
+}

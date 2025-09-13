@@ -13,16 +13,16 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1020.0" prefWidth="1720.0" stylesheets="@../../../assets/css/dashboard/ventas/ventas.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.controllers.dashboard.ventas.VentasController">
+<AnchorPane prefHeight="1020.0" prefWidth="1720.0" styleClass="ventas-root" stylesheets="@../../../assets/css/dashboard/ventas/ventas.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.controllers.dashboard.ventas.VentasController">
 
     <children>
 
         <!-- Panel izquierdo -->
-        <AnchorPane layoutX="10.0" layoutY="14.0" prefHeight="983.0" prefWidth="1141.0">
+        <AnchorPane layoutX="10.0" layoutY="14.0" prefHeight="983.0" prefWidth="1141.0" styleClass="ventas-left-pane">
             <children>
-                <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="0.0" layoutY="0.0" prefHeight="983.0" prefWidth="1141.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="0.0" layoutY="0.0" prefHeight="983.0" prefWidth="1141.0" styleClass="ventas-products-scroll" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <content>
-                        <GridPane fx:id="gridProductos" hgap="15.0" vgap="15.0">
+                        <GridPane fx:id="gridProductos" hgap="15.0" styleClass="ventas-grid" vgap="15.0">
                             <padding>
                                 <Insets bottom="20.0" left="15.0" right="15.0" top="20.0" />
                             </padding>
@@ -40,7 +40,7 @@
         <Separator layoutX="1171.0" layoutY="5.0" orientation="VERTICAL" prefHeight="991.0" />
 
         <!-- Panel derecho -->
-        <AnchorPane layoutX="1203.0" layoutY="14.0" prefHeight="983.0" prefWidth="505.0">
+        <AnchorPane layoutX="1203.0" layoutY="14.0" prefHeight="983.0" prefWidth="505.0" styleClass="ventas-ticket-panel">
             <children>
 
                 <TableView fx:id="tblCarrito" prefHeight="579.0" prefWidth="505.0" AnchorPane.bottomAnchor="404.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -49,6 +49,9 @@
                         <TableColumn fx:id="colCantidad" prefWidth="72.6" text="CANTIDAD" />
                         <TableColumn fx:id="colPrecio" prefWidth="75.0" text="PRECIO" />
                     </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
                 </TableView>
 
                 <AnchorPane layoutY="583.0" prefHeight="97.0" prefWidth="505.0">

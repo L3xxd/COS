@@ -1,0 +1,99 @@
+/* Global dark theme for the whole app */
+
+/* Base */
+.root {
+  -fx-font-family: "Segoe UI";
+}
+
+.anchor-pane,
+.pane,
+.border-pane,
+.vbox,
+.hbox {
+  -fx-background-color: #1f242d;
+}
+
+/* Asegurar que AnchorPane hereda fondo oscuro incluso si otras hojas lo cambian */
+.root .anchor-pane { -fx-background-color: #1f242d; }
+
+/* Labels */
+.label { -fx-text-fill: #e6e6e6; }
+
+/* Text fields */
+.text-field {
+  -fx-background-color: #2a313d;
+  -fx-border-color: #3a4352;
+  -fx-text-fill: #f0f0f0;
+  -fx-border-radius: 4; -fx-background-radius: 4;
+}
+
+/* ComboBox */
+.combo-box {
+  -fx-background-color: #2a313d;
+  -fx-border-color: #3a4352;
+  -fx-border-radius: 4; -fx-background-radius: 4;
+}
+
+/* Buttons (generic) */
+.button {
+  -fx-background-color: linear-gradient(#3a4352, #2a313d);
+  -fx-text-fill: #f0f0f0;
+  -fx-font-weight: bold;
+  -fx-border-radius: 5; -fx-background-radius: 5;
+}
+.button:hover { -fx-background-color: linear-gradient(#465064, #3a4352); }
+
+/* Semantic buttons */
+.button-primary   { -fx-background-color: #2ecc71; -fx-text-fill: #0b0b0b; }
+.button-secondary { -fx-background-color: #3498db; -fx-text-fill: #0b0b0b; }
+.button-danger    { -fx-background-color: #e74c3c; -fx-text-fill: #0b0b0b; }
+
+/* Tables */
+.table-view {
+  -fx-background-color: #2a313d;
+  -fx-border-color: #3a4352;
+  -fx-control-inner-background: #2a313d;
+  -fx-table-cell-border-color: #3a4352;
+}
+
+/* Table header and cells for readability */
+.table-view .column-header-background { -fx-background-color: #2a313d; -fx-background-insets: 0; }
+.table-view .filler { -fx-background-color: #2a313d; }
+.table-view .column-header, .table-view .column-header .label { -fx-text-fill: #e6e6e6; }
+.table-view .table-row-cell { -fx-background-color: #2a313d; }
+.table-view .table-row-cell:selected { -fx-background-color: #3a4352; }
+.table-view .cell { -fx-text-fill: #f0f0f0; }
+.table-view .table-cell { -fx-text-fill: #f0f0f0; }
+.table-view .placeholder .label { -fx-text-fill: #c8cdd7; }
+
+/* Raíz de la vista de ventas */
+.ventas-root { -fx-background-color: #1b2028; }
+
+/* ScrollPane y contenedores de productos (lado izquierdo) */
+.ventas-left-pane { -fx-background-color: #1f242d; }
+.ventas-products-scroll {
+  -fx-background: #1f242d;
+  -fx-background-color: #1f242d;
+}
+.ventas-products-scroll .viewport {
+  -fx-background-color: #1f242d;
+}
+.ventas-grid { -fx-background-color: #1f242d; }
+
+/* Scrollbars del panel de productos */
+.ventas-products-scroll .scroll-bar:vertical,
+.ventas-products-scroll .scroll-bar:horizontal { -fx-background-color: #1f242d; }
+.ventas-products-scroll .scroll-bar .track { -fx-background-color: #222831; }
+.ventas-products-scroll .scroll-bar .thumb { -fx-background-color: #3a4352; -fx-background-radius: 4; }
+
+/* Tarjeta de producto */
+.product-card {
+  -fx-background-color: #2a313d;
+  -fx-border-color: #3a4352;
+  -fx-background-radius: 10;
+  -fx-border-radius: 10;
+  -fx-padding: 10;
+}
+
+/* Panel derecho (ticket/totales) */
+.ventas-ticket-panel { -fx-background-color: #1f242d; }
