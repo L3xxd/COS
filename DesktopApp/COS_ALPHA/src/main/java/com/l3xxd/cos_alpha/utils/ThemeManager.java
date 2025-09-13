@@ -18,9 +18,10 @@ public class ThemeManager {
     /**
      * Alterna el tema visual en una vista de login.
      * Aplica fade-out, cambia hoja de estilos y luego fade-in.
-     * @param pane contenedor principal
-     * @param toggleButton botón que activa el cambio
-     * @param isDarkMode estado actual del tema
+     *
+     * @param pane             contenedor principal
+     * @param toggleButton     botón que activa el cambio
+     * @param isDarkMode       estado actual del tema
      * @param onToggleComplete acción adicional tras aplicar el tema
      */
     public static void toggle(Pane pane, Button toggleButton, boolean isDarkMode, Runnable onToggleComplete) {
@@ -41,9 +42,9 @@ public class ThemeManager {
             URL cssUrl = ThemeManager.class.getResource(cssPath);
             if (cssUrl != null) {
                 stylesheets.add(cssUrl.toExternalForm());
-                System.out.println("✔ Tema aplicado: " + cssPath);
+                System.out.println("[Theme] Tema aplicado: " + cssPath);
             } else {
-                System.err.println("❌ No se encontró CSS en " + cssPath);
+                System.err.println("[Theme] No se encontró CSS en " + cssPath);
             }
 
             if (onToggleComplete != null) onToggleComplete.run();
@@ -59,10 +60,13 @@ public class ThemeManager {
 
     /**
      * Aplica un tema visual con transición fade a múltiples regiones.
+     * Preserva las hojas de estilo propias de cada vista (ventas.css, etc.)
+     * y sustituye únicamente el tema global del rootApp.
+     *
      * @param isDarkMode estado del tema
-     * @param cssPath ruta al archivo CSS
+     * @param cssPath    ruta al archivo CSS del tema global
      * @param onComplete acción adicional tras aplicar el tema
-     * @param targets nodos visuales a estilizar
+     * @param targets    nodos visuales a estilizar
      */
     public static void applyThemeWithFade(boolean isDarkMode, String cssPath, Runnable onComplete, Parent... targets) {
         for (Parent node : targets) {
@@ -71,14 +75,18 @@ public class ThemeManager {
             fadeOut.setToValue(0.0);
 
             fadeOut.setOnFinished(e -> {
-                node.getStylesheets().clear();
+                // Elimina únicamente los estilos previos del tema global
+                node.getStylesheets().removeIf(url -> url.contains("/assets/css/rootApp/"));
 
                 URL cssUrl = ThemeManager.class.getResource(cssPath);
                 if (cssUrl != null) {
-                    node.getStylesheets().add(cssUrl.toExternalForm());
-                    System.out.println("✔ Estilo aplicado a " + node.getClass().getSimpleName());
+                    String newUrl = cssUrl.toExternalForm();
+                    if (!node.getStylesheets().contains(newUrl)) {
+                        node.getStylesheets().add(newUrl);
+                    }
+                    System.out.println("[Theme] Estilo aplicado a " + node.getClass().getSimpleName());
                 } else {
-                    System.err.println("❌ No se encontró CSS en " + cssPath);
+                    System.err.println("[Theme] No se encontró CSS en " + cssPath);
                 }
 
                 if (onComplete != null) onComplete.run();
@@ -93,3 +101,4 @@ public class ThemeManager {
         }
     }
 }
+

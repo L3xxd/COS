@@ -34,38 +34,31 @@
             <children>
 
                 <!-- 🏷️ Nombre y precio del producto -->
-                <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="230.0">
+                <HBox alignment="CENTER" spacing="10.0" prefHeight="29.0" prefWidth="230.0">
                     <children>
-                        <Label fx:id="prod_name" text="Cupcake" prefHeight="21.0" prefWidth="151.0">
+                        <Label fx:id="prod_name" text="Cupcake" prefHeight="21.0" prefWidth="151.0" alignment="CENTER" textAlignment="CENTER">
                             <font>
                                 <Font size="15.0" />
                             </font>
-                            <HBox.margin>
-                                <Insets left="25.0" />
-                            </HBox.margin>
                         </Label>
 
-                        <Label fx:id="prod_price" text="\$0.0" alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="86.0">
+                        <Label fx:id="prod_price" text="\$0.0" alignment="CENTER" textAlignment="CENTER" prefHeight="21.0" prefWidth="86.0">
                             <font>
                                 <Font size="15.0" />
                             </font>
-                            <HBox.margin>
-                                <Insets right="25.0" />
-                            </HBox.margin>
                         </Label>
                     </children>
                 </HBox>
 
                 <!-- 🖼️ Imagen del producto -->
-                <AnchorPane prefHeight="101.0" prefWidth="230.0">
+                <HBox alignment="CENTER" prefHeight="130.0" prefWidth="230.0">
                     <children>
                         <ImageView fx:id="prod_imageView"
-                                   fitHeight="94.0" fitWidth="190.0"
-                                   layoutX="20.0" layoutY="4.0"
+                                   fitHeight="120.0" fitWidth="190.0"
                                    pickOnBounds="true"
                                    preserveRatio="true" />
                     </children>
-                </AnchorPane>
+                </HBox>
 
                 <!-- 🔢 Spinner y botón de acción -->
                 <HBox alignment="CENTER" prefHeight="48.0" prefWidth="230.0">

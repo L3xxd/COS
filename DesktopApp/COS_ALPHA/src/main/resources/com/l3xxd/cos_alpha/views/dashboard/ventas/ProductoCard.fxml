@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox spacing="5.0" style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-padding: 10;"
-      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.l3xxd.cos_alpha.controllers.dashboard.ventas.ProductoCardController">
+<VBox spacing="5.0" alignment="CENTER" fillWidth="false" style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-padding: 10;" stylesheets="@../../../assets/css/dashboard/ventas/product-card.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.controllers.dashboard.ventas.ProductoCardController">
     <children>
-        <ImageView fx:id="imgProducto" fitHeight="100.0" fitWidth="150.0" />
-        <Label fx:id="lblNombre" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
-        <Label fx:id="lblPrecio" style="-fx-font-size: 14px;" />
-        <Spinner fx:id="spinnerCantidad" prefWidth="80.0" />
-        <Button fx:id="btnAgregar" text="Agregar" prefWidth="150.0" />
+        <ImageView fx:id="imgProducto" fitHeight="150.0" fitWidth="200.0" preserveRatio="true" pickOnBounds="true" />
+        <Label fx:id="lblNombre" alignment="CENTER" textAlignment="CENTER" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+        <Label fx:id="lblPrecio" alignment="CENTER" textAlignment="CENTER" style="-fx-font-size: 14px;" />
+        <Spinner fx:id="spinnerCantidad" prefHeight="25.0" prefWidth="147.0" />
+        <Button fx:id="btnAgregar" prefWidth="150.0" styleClass="product-card-button" text="Agregar" />
     </children>
 </VBox>

@@ -1,0 +1,21 @@
+/* Button styles scoped to product cards */
+
+.product-card-button {
+  -fx-background-color: linear-gradient(#3498db, #2980b9);
+  -fx-text-fill: white;
+  -fx-font-size: 14px;
+  -fx-font-weight: 600;
+  -fx-background-radius: 8;
+  -fx-background-insets: 0;
+  -fx-padding: 8 12;
+  -fx-cursor: hand;
+}
+
+.product-card-button:hover {
+  -fx-background-color: linear-gradient(#3fa6ed, #3498db);
+}
+
+.product-card-button:pressed {
+  -fx-background-color: #2980b9;
+}
+
