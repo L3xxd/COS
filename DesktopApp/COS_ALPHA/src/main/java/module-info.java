@@ -17,6 +17,7 @@ module com.l3xxd.cos_alpha {
     // Ikonli
     requires org.kordamp.ikonli.core;
     requires org.kordamp.ikonli.javafx;
+    requires org.kordamp.ikonli.fontawesome5;
     requires org.kordamp.ikonli.antdesignicons;
     requires org.kordamp.ikonli.coreui;
     requires org.kordamp.ikonli.bootstrapicons;

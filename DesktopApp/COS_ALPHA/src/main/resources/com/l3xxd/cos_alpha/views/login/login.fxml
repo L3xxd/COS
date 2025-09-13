@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- Importación de controles, layout, íconos y recursos visuales -->
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
@@ -8,19 +9,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <!-- 🌐 Vista principal del módulo Login -->
-<Pane fx:id="paneFloating"
-      prefHeight="1080.0" prefWidth="1920.0"
-      stylesheets="@/com/l3xxd/cos_alpha/assets/css/login/light-mode.css"
-      xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.l3xxd.cos_alpha.controllers.login.LoginController">
+
+<Pane fx:id="paneFloating" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../assets/css/login/light-mode.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.l3xxd.cos_alpha.controllers.login.LoginController">
 
     <children>
 
@@ -28,78 +25,47 @@
         <Pane prefHeight="1080.0" prefWidth="1920.0" styleClass="background-pane" />
 
         <!-- 🧭 Panel flotante central con formulario -->
-        <Pane layoutX="600.0" layoutY="100.0"
-              prefHeight="900.0" prefWidth="800.0"
-              styleClass="floating-pane"
-              fx:id="contenedor">
+        <Pane fx:id="contenedor" layoutX="600.0" layoutY="100.0" prefHeight="900.0" prefWidth="800.0" styleClass="floating-pane">
 
             <children>
 
                 <!-- 🖼️ Logo institucional -->
-                <ImageView
-                        fitHeight="281.0" fitWidth="295.0"
-                        layoutX="256.0" layoutY="45.0"
-                        image="@../../assets/img/logo/logoImage.png"/>
+                <ImageView fx:id="logoImageView" fitHeight="281.0" fitWidth="295.0" layoutX="256.0" layoutY="45.0">
+                    <image>
+                        <!-- relativo al FXML: views/login/login.fxml -> ../../assets/img/logo/logoImage.png -->
+                        <Image url="@../../assets/img/logo/logoImage.png" />
+                    </image>
+                </ImageView>
 
 
                 <!-- 👋 Mensaje de bienvenida -->
-                <Text fx:id="welcomeLabel" layoutX="120.0" layoutY="410.0"
-                      strokeType="OUTSIDE" strokeWidth="0.0"
-                      styleClass="label-welcome" text="¡Bienvenid@ de Nuevo!">
+                <Text fx:id="welcomeLabel" layoutX="120.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-welcome" text="¡Bienvenid@ de Nuevo!">
                     <font><Font name="Segoe UI Bold" size="51.0" /></font>
                 </Text>
 
                 <!-- 👤 Campo de usuario -->
-                <FontIcon iconLiteral="fas-user" iconSize="48"
-                          layoutX="143.0" layoutY="491.0"
-                          styleClass="icons-class" />
-                <TextField fx:id="userTextField"
-                           layoutX="220.0" layoutY="444.0"
-                           prefHeight="45.0" prefWidth="429.0"
-                           styleClass="text-field-data" />
+                <FontIcon iconLiteral="fas-user" iconSize="48" layoutX="143.0" layoutY="491.0" styleClass="icons-class" />
+                <TextField fx:id="userTextField" layoutX="220.0" layoutY="444.0" prefHeight="45.0" prefWidth="429.0" styleClass="text-field-data" />
 
                 <!-- 🔒 Campo de contraseña -->
-                <FontIcon iconLiteral="fas-lock" iconSize="48"
-                          layoutX="146.0" layoutY="569.0"
-                          styleClass="icons-class" />
-                <PasswordField fx:id="passwordTextField"
-                               layoutX="221.0" layoutY="528.0"
-                               prefHeight="45.0" prefWidth="429.0"
-                               styleClass="text-field-data" />
+                <FontIcon iconLiteral="fas-lock" iconSize="48" layoutX="146.0" layoutY="569.0" styleClass="icons-class" />
+                <PasswordField fx:id="passwordTextField" layoutX="221.0" layoutY="528.0" prefHeight="45.0" prefWidth="429.0" styleClass="text-field-data" />
 
                 <!-- ⚠️ Mensaje de error -->
-                <Label fx:id="errorLabel"
-                       layoutX="163.0" layoutY="613.0"
-                       styleClass="error-label"
-                       text="Usuario y/o Contraseña incorrectos, ingresar nuevamente los datos."
-                       visible="false" />
+                <Label fx:id="errorLabel" layoutX="163.0" layoutY="613.0" styleClass="error-label" text="Usuario y/o Contraseña incorrectos, ingresar nuevamente los datos." visible="false" />
 
                 <!-- ✅ Botón de acceso -->
-                <Button fx:id="enterButton"
-                        layoutX="149.0" layoutY="675.0"
-                        mnemonicParsing="false"
-                        prefHeight="80.0" prefWidth="512.0"
-                        styleClass="button-enter"
-                        text="ENTRAR" />
+                <Button fx:id="enterButton" layoutX="149.0" layoutY="675.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="512.0" styleClass="button-enter" text="ENTRAR" />
 
                 <!-- 🔗 Enlace de recuperación -->
-                <Hyperlink fx:id="linkText"
-                           layoutX="329.0" layoutY="764.0"
-                           styleClass="link-text"
-                           text="Tengo problemas para iniciar sesión"
-                           focusTraversable="false" />
+                <Hyperlink fx:id="linkText" focusTraversable="false" layoutX="329.0" layoutY="764.0" styleClass="link-text" text="Tengo problemas para iniciar sesión" />
 
                 <!-- 🌗 Botón para cambiar tema -->
-                <Button fx:id="themeToggleButton"
-                        layoutX="341.0" layoutY="831.0"
-                        mnemonicParsing="false"
-                        styleClass="button-theme-toggle"
-                        text="Cambiar Oscuro">
+                <Button fx:id="themeToggleButton" layoutX="341.0" layoutY="831.0" mnemonicParsing="false" styleClass="button-theme-toggle" text="Cambiar Oscuro">
                     <graphic>
                         <HBox spacing="6">
                             <children>
-                                <FontIcon iconLiteral="fas-sun"  styleClass="icon-theme-button"/>
-                                <FontIcon iconLiteral="fas-moon" styleClass="icon-theme-button"/>
+                                <FontIcon iconLiteral="fas-sun" styleClass="icon-theme-button" />
                             </children>
                         </HBox>
                     </graphic>
