@@ -184,6 +184,6 @@ Formulario](./CAPS/Captura%20de%20pantalla%202025-09-13%20165257.png)
 ------------------------------------------------------------------------
 
 ## 📜 Licencia
-
-Actualmente no especificada.\
-Si se planea distribución, incluir una licencia adecuada.
+Este software es **propietario y de uso comercial**.  
+Queda prohibida la copia, modificación, distribución o uso no autorizado de este proyecto sin el consentimiento expreso y por escrito de su autor.  
+© 2025 Alejandro Balderas Rios. Todos los derechos reservados.
